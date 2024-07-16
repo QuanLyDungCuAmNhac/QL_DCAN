@@ -1,5 +1,5 @@
 # Thành viên
-<h4>Tên nhóm: Sea  </h4>
+
 | STT | Họ tên | Chức vụ  |
 |----------------|--------------------|--------------------|
 |  1  |  Đỗ Thành Huy  |   Nhóm trưởng  |
@@ -16,16 +16,14 @@
 ## Hệ thống quản lý dụng cụ âm nhạc
 
 <h5>Mô tả dự án: </h5>
-<p>Ebook là một hệ thống ứng dụng đa nền tảng cho phép người dùng đọc sách điện tử (ebook) trực tuyến. Hệ thống này sẽ mở ra khả năng đọc sách trực tuyến qua giao diện web, đồng thời cung cấp một ứng dụng tiện lợi để quản lý sách một cách hiệu quả.</p>
+<p>Hệ thống ứng dụng đa nền tảng cho phép người dùng mua hàng trực tuyến. Hệ thống này sẽ có chức năng xem sản phẩm, đặt hàng, thanh toán, tư vấn cho khách hàng qua giao diện web, đồng thời cung cấp một ứng dụng tiện lợi để quản lý một cách hiệu quả.</p>
 
-<p>Được truy cập thông qua mạng, người dùng sẽ có cơ hội trải nghiệm không gian đọc sách độc đáo với sự tiện ích và linh hoạt mà chỉ công nghệ có thể mang lại. Không còn cần phải mang theo sách giấy, không gian sách điện tử sẽ tiết kiệm không gian và mang đến trải nghiệm đọc sách linh hoạt hơn bao giờ hết. Từ những trang sách kinh điển cho đến những tác phẩm hiện đại, mọi thứ đều có thể được truy cập và đọc một cách thuận tiện. </p>
-<p>Song song với việc đọc sách trực tuyến, ứng dụng đi kèm cung cấp một giao diện quản lý tiện lợi. Người dùng có thể tổ chức và quản lý tài liệu sách của mình theo cách riêng biệt, từ việc đánh dấu, sắp xếp theo thể loại cho đến tìm kiếm nhanh bằng cách sử dụng các tiện ích tìm kiếm thông minh. Điều này mang lại sự tiện lợi và hiệu quả cho việc tìm kiếm và sử dụng tài liệu sách, từ đó khuyến khích sự học hỏi và nghiên cứu một cách linh hoạt và hiệu quả hơn.
-</p>
+<p>Được truy cập thông qua mạng, người dùng sẽ có cơ hội trải nghiệm không gian đọc sách độc đáo với sự tiện ích và linh hoạt mà chỉ công nghệ có thể mang lại. </p>
 
 ### Yêu cầu 
-<p>AI: Gợi ý loại sách theo nội dung  </p>
+<p>AI: Chatbot tư vấn khách hàng  </p>
 
-<p>Web: MVC ASP, LinQ</p>
+<p>Web: MVC ASP, Entity Framework</p>
 <p>Ngôn ngữ: Javascript, C# </p>
 <p>Framework: Bootstrap</p>
 
@@ -33,13 +31,11 @@
 
 | STT | Nghiệp vụ | Phân công  |
 |----------------|--------------------|--------------------|
-|  1  |  Tìm kiếm sách |   Thi  |
-|  2  |  Đăng nhập đăng ký |  Thảo  |
-|  3  |  Xem thông tin sách [Trang chủ, trang tin tức, trang giới thiệu, trang xem toàn bộ sách(có bộ lọc),Xem chi tiết sách, đánh giá sách]  |   Thi  |
-|  4  |  Quản lý thông tin tài khoản [Thông tin KH, thông tin tài khoản, thông tin đơn hàng đã mua, sách yêu thích] |  Phát  |
-|  5  |  Mua hàng  |  Phát  |
-|  6 |  Thanh toán |  Phát  |
-|  7 |  Đánh giá |  Phát  |
+|  1  |  Tìm kiếm, sắp xếp, lọc
+|  2  |  Đăng nhập đăng ký 
+|  3  |  Nhập hàng
+|  4  |  Mua hàng 
+|  5  |  Thanh toán
 
 
 <p>App: Winform </p>
@@ -47,15 +43,14 @@
 
 | STT | Nghiệp vụ | Phân công  |
 |----------------|--------------------|--------------------|
-|  1  |  Đăng nhập/đăng xuất |   Thảo  |
-|  2  | Phân quyền  |  Thảo |
-|  3  |  Quản lý nhân viên +  chức vụ  |   Thi  |
-|  4  |  Quản lý sách + tác giả + nhà sản xuất + AI|   Thảo  |
-|  5  |  Quản lý khách hàng |  Thi  |
-|  6  |   Quản lý tin tức |  Phát  |
-|  7  |   Thống kê |  Thảo  |
-|  8  |   Báo cáo |  Thảo  |
-|  9  |  Duyệt tin tức|  Thảo  |
+|  1 |  Phân quyền
+|  2 |  Quản lý sản phẩm
+|  3 |  Quản lý khách hàng
+|  4 |  Quản lý đơn hàng
+|  5 |  Quản lý kho hàng
+|  6 |  Thống kê
+|  7 |  Xem lịch sử mua hàng
+|  8 |  In hóa đơn
 
 
 ## Chức năng
