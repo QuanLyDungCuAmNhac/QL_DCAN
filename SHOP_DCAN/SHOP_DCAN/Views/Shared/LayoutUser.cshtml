@@ -1,0 +1,371 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SayyamCode</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.html">
+    <link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- CSS here -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/animate.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/meanmenu.css">
+    <link rel="stylesheet" href="~/css/meanmenu.css">
+    <link rel="stylesheet" href="~/css/slick.css">
+    <link rel="stylesheet" href="~/css/default.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/responsive.css">
+</head>
+<body style="overflow: visible;">
+    <!-- preloader -->
+    <div id="preloader" style="display: none;">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- preloader end  -->
+    <!-- header start -->
+    <header>
+        <div id="header-sticky" class="header-area box-90">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-xl-2 col-lg-6 col-md-6 col-7 col-sm-5 d-flex align-items-center pos-relative">
+                        <div class="basic-bar cat-toggle">
+                            <span class="bar1"></span>
+                            <span class="bar2"></span>
+                            <span class="bar3"></span>
+                        </div>
+                        <div class="logo">
+                            <a href="@Url.Action("Index","Home")"><img src="~/img/logo/logo.png" alt=""></a>
+                        </div>
+
+                        <div class="category-menu">
+                            <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Loại</font></font></h4>
+                            <ul>
+                                <li><a href="shop.html"><i class="flaticon-shopping-cart-1"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đèn bàn</font></font></a></li>
+                                <li><a href="shop.html"><i class="flaticon-shopping-cart-1"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất</font></font></a></li>
+                                <li><a href="shop.html"><i class="flaticon-shopping-cart-1"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cái ghế</font></font></a></li>
+                                <li><a href="shop.html"><i class="flaticon-shopping-cart-1"></i> Men</a></li>
+                                <li><a href="shop.html"><i class="flaticon-shopping-cart-1"></i> Women</a></li>
+                                <li><a href="shop.html"><i class="flaticon-shopping-cart-1"></i> Cloth</a></li>
+                                <li><a href="shop.html"><i class="flaticon-shopping-cart-1"></i> Trend</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-6 col-md-8 col-8 d-none d-xl-block">
+                        <div class="main-menu text-center">
+                            <nav id="mobile-menu" style="display: block;">
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("Index", "Home")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Trang chủ</font></font></a>
+                                       
+                                    </li>
+                                    <li class="mega-menu">
+                                        <a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Html.ActionLink("SẢN PHẨM","Index","Product")</font></font></a>
+                                        <ul class="submenu ">
+                                            <li>
+                                                <a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></a>
+                                                <ul class="submenu  level-1">
+                                                    <li>
+                                                        <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa hàng 2 cột</font></font></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="shop-filter.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kiểu bộ lọc cửa hàng</font></font></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="shop-full.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa hàng đầy đủ</font></font></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="shop-3-col.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa hàng 3 cột</font></font></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="shop-list.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xem danh sách</font></font></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xem danh mục</font></font></a>
+                                                <ul class="submenu">
+                                                    <li>
+                                                        <a href="shop-left-sidebar.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thanh bên trái</font></font></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="shop-sidebar-right.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thanh bên phải</font></font></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="cart.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giỏ hàng</font></font></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="@Url.Action("Index","CheckOut")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thủ tục thanh toán</font></font></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="wishlist.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm yêu thích</font></font></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                   
+                                   
+                                    <li>
+                                        <a href="@Url.Action("About","Home")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Về chúng tôi</font></font></a>                               
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("LienHe","Home")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Liên hệ</font></font></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-6 col-md-6 col-5 col-sm-7 pl-0">
+                        <div class="header-right f-right">
+                            <ul>
+                                <li class="search-btn">
+                                    <a class="search-btn nav-search search-trigger" href="#"><i class="fas fa-search"></i></a>
+                                </li>
+                                <li class="login-btn"><a href="@Url.Action("Index","Login")"><i class="far fa-user"></i></a></li>
+                                <li class="d-shop-cart">
+                                    <a href="@Url.Action("Index","Cart")"><i class="flaticon-shopping-cart"></i> <span class="cart-count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></span></a>
+                                    <ul class="minicart">
+                                        <li>
+                                            <div class="cart-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/img/product/pro1.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="cart-content">
+                                                <h3>
+                                                    <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giày đen trắng</font></font></a>
+                                                </h3>
+                                                <div class="cart-price">
+                                                    <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">229,9 đô la</font></font></span>
+                                                    <span>
+                                                        <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">239,9 đô la</font></font></del>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="del-icon">
+                                                <a href="#">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cart-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/img/product/pro2.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="cart-content">
+                                                <h3>
+                                                    <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giày đen trắng</font></font></a>
+                                                </h3>
+                                                <div class="cart-price">
+                                                    <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">229,9 đô la</font></font></span>
+                                                    <span>
+                                                        <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">239,9 đô la</font></font></del>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="del-icon">
+                                                <a href="#">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cart-img">
+                                                <a href="product-details.html">
+                                                    <img src="~/img/product/pro3.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="cart-content">
+                                                <h3>
+                                                    <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giày đen trắng</font></font></a>
+                                                </h3>
+                                                <div class="cart-price">
+                                                    <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">229,9 đô la</font></font></span>
+                                                    <span>
+                                                        <del><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">239,9 đô la</font></font></del>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="del-icon">
+                                                <a href="#">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="total-price">
+                                                <span class="f-left"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tổng cộng:</font></font></span>
+                                                <span class="f-right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300,0 đô la</font></font></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="checkout-link">
+                                                <a href="@Url.Action("Index","Cart")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giỏ hàng</font></font></a>
+                                                <a class="red-color" href="@Url.Action("Index","CheckOut")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thủ tục thanh toán</font></font></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 d-xl-none">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    @RenderBody()
+
+    <!-- footer start -->
+    <footer>
+        <div class="footer-area box-90 pt-100 pb-60">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-5 col-md-6 ">
+                        <div class="footer-widget mb-40">
+                            <div class="footer-logo">
+                                <a href="@Url.Action("Index","Home")"><img src="~/img/logo/footer-logo.png" alt=""></a>
+                            </div>
+                            <p>
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        Bản thân cơn đau là rất quan trọng và việc giảm cân sẽ xảy ra sau đó, nhưng đồng thời chúng cũng xảy ra do sự đau đớn và khổ sở lớn lao. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.
+                                    </font>
+                                </font>
+                            </p>
+                            <div class="footer-time d-flex mt-30">
+                                <div class="time-icon">
+                                    <img src="~/img/icon/time.png" alt="">
+                                </div>
+                                <div class="time-text">
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bạn có thắc mắc? Hãy gọi cho chúng tôi 24/7!</font></font></span>
+                                    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(0600) 874 548</font></font></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-3 d-lg-none d-xl-block">
+                        <div class="footer-widget pl-50 mb-40">
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Truyền thông xã hội</font></font></h3>
+                            <ul class="footer-link">
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Facebook</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Twitter</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Behance</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dribbble</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Linkedin</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Youtube</font></font></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-3 d-lg-none d-xl-block">
+                        <div class="footer-widget pl-30 mb-40">
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vị trí</font></font></h3>
+                            <ul class="footer-link">
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Newyork</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tokyo</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đắc-ca</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chittagong</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Trung Quốc</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhật Bản</font></font></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-2 col-md-3">
+                        <div class="footer-widget mb-40">
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Về</font></font></h3>
+                            <ul class="footer-link">
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều khoản và điều kiện</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chính sách bảo mật</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Liên hệ chúng tôi</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Câu hỏi thường gặp</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bán sỉ</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phương hướng</font></font></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-5 col-md-6">
+                        <div class="footer-widget mb-40">
+                            <div class="footer-banner">
+                                <a href="shop.html"><img src="~/img/banner/add.jpg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area box-105">
+            <div class="container-fluid">
+                <div class="copyright-border pt-30 pb-30">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                            <div class="copyright text-center text-md-left">
+                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bản quyền © 2019 </font></font><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SayyamCode</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . Bảo lưu mọi quyền</font></font></p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6">
+                            <div class="footer-icon text-center text-md-right ">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <!-- footer end -->
+    <!-- Fullscreen search -->
+    <div class="search-wrap">
+        <div class="search-inner">
+            <i class="fas fa-times search-close" id="search-close"></i>
+            <div class="search-cell">
+                <form method="get">
+                    <div class="search-field-holder">
+                        <input type="search" class="main-search-input" placeholder="Search Entire Store...">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- end fullscreen search -->
+    <!-- JS here -->
+    <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/isotope.pkgd.min.js"></script>
+    <script src="~/js/one-page-nav-min.js"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/js/jquery.meanmenu.min.js"></script>
+    <script src="~/js/ajax-form.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/jquery.scrollUp.min.js"></script>
+    <script src="~/js/jquery.final-countdown.min.js"></script>
+    <script src="~/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,751 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+<main>
+
+    <!-- breadcrumb-area-start -->
+    <section class="breadcrumb-area" data-background="~/img/bg/page-title.png" style="background-image: url(&quot;~/img/bg/page-title.png&quot;);">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="breadcrumb-text text-center">
+                        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa hàng của chúng tôi</font></font></h1>
+                        <ul class="breadcrumb-menu">
+                            <li><a href="index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang chủ</font></font></a></li>
+                            <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">chi tiết cửa hàng</font></font></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+    <!-- shop-area start -->
+    <section class="shop-details-area pt-100 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-4">
+                    <div class="product-details-img mb-10">
+                        <div class="tab-content" id="myTabContentpro">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel">
+                                <div class="product-large-img">
+                                    <img src="~/img/product/pro1.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel">
+                                <div class="product-large-img">
+                                    <img src="~/img/product/pro2.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile1" role="tabpanel">
+                                <div class="product-large-img">
+                                    <img src="~/img/product/pro3.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-thumb-tab mb-30">
+                        <ul class="nav" id="myTab2" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-selected="true"><img src="~/img/product/pro1.jpg" alt=""> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-selected="false"><img src="~/img/product/pro2.jpg" alt=""></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#profile1" role="tab" aria-selected="false"><img src="~/img/product/pro3.jpg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-8">
+                    <div class="product-details mb-30 pl-30">
+                        <div class="details-cat mb-20">
+                            <a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                            <a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                        </div>
+                        <h2 class="pro-details-title mb-15"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vải mùa đông Limonda dành cho nữ</font></font></h2>
+                        <div class="details-price mb-20">
+                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">119,00 đô </font></font></span>
+                            <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">la 246,00 đô la</font></font></span>
+                        </div>
+                        <div class="product-variant">
+
+                            <div class="product-color variant-item">
+                                <div class="variant-name">
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Màu sắc</font></font></span>
+                                </div>
+                                <ul class="shop-link shop-color">
+                                    <li><a href="shop.html"><span class="blue"></span></a></li>
+                                    <li><a href="shop.html"><span class="green"></span> </a></li>
+                                    <li><a href="shop.html"><span class="orange"></span> </a></li>
+                                    <li><a href="shop.html"><span class="navy"></span> </a></li>
+                                    <li><a href="shop.html"><span class="pinkish"></span> </a></li>
+                                    <li><a href="shop.html"><span class="vista"></span> </a></li>
+                                </ul>
+                            </div>
+
+                            <div class="product-size variant-item">
+                                <div class="variant-name">
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">kích cỡ</font></font></span>
+                                </div>
+                                <ul class="shop-link shop-size">
+                                    <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">xl   </font></font></a></li>
+                                    <li class="active"><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">xl</font></font></a></li>
+                                    <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">lg</font></font></a></li>
+                                    <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bác sĩ  </font></font></a></li>
+                                    <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">nho nhỏ</font></font></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="product-desc variant-item">
+                                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều rất quan trọng là phải chăm sóc bệnh nhân, và bệnh nhân sẽ được theo dõi, nhưng đồng thời chúng xảy ra do sự đau đớn và khổ sở lớn lao. Hãy để tôi đi vào chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào ngoại trừ một loại người nào đó.</font></font></p>
+                            </div>
+
+                            <div class="product-info-list variant-item">
+                                <ul>
+                                    <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhãn hiệu:</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hewlett Packard</font></font></li>
+                                    <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mã sản phẩm:</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">d12</font></font></li>
+                                    <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điểm thưởng:</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></li>
+                                    <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cổ phần:</font></font></span> <span class="in-stock"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Trong kho</font></font></span></li>
+                                </ul>
+                            </div>
+
+                            <div class="product-action-details variant-item">
+                                <div class="product-details-action">
+                                    <form action="#">
+                                        <div class="plus-minus">
+                                            <div class="cart-plus-minus"><input type="text" value="1"><div class="dec qtybutton"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></div><div class="inc qtybutton"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">+</font></font></div></div>
+                                        </div>
+                                        <button class="details-action-icon" type="submit"><i class="fas fa-heart"></i></button>
+                                        <button class="details-action-icon" type="submit"><i class="fas fa-hourglass"></i></button>
+                                        <div class="details-cart mt-40">
+                                            <button class="btn theme-btn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mua ngay</font></font></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-50">
+                <div class="col-xl-8 col-lg-8">
+                    <div class="product-review">
+                        <ul class="nav review-tab" id="myTabproduct" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab6" data-toggle="tab" href="#home6" role="tab" aria-controls="home" aria-selected="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sự miêu tả</font></font></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab6" data-toggle="tab" href="#profile6" role="tab" aria-controls="profile" aria-selected="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đánh giá (2)</font></font></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent2">
+                            <div class="tab-pane fade show active" id="home6" role="tabpanel" aria-labelledby="home-tab6">
+                                <div class="desc-text">
+                                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều rất quan trọng là phải chăm sóc bệnh nhân, và bệnh nhân sẽ được theo dõi, nhưng đồng thời chúng xảy ra do sự đau đớn và khổ sở lớn lao. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó. Đừng tức giận với nỗi đau trong sự khiển trách trong niềm vui mà anh ấy muốn được thoát khỏi nỗi đau với hy vọng rằng không có sự sinh sản. Trừ khi họ bị dục vọng làm cho mù quáng, nếu không họ sẽ không bước ra; họ có lỗi nếu từ bỏ nhiệm vụ của mình và làm mềm lòng, tức là lao động của họ. Nhưng để bạn có thể thấy tất cả sai lầm bẩm sinh này của những người buộc tội niềm vui và ca ngợi nỗi đau là từ đâu, tôi sẽ mở rộng toàn bộ vấn đề và giải thích chính những điều đã được nói bởi người khám phá ra sự thật và cũng như người kiến ​​tạo nên sự thật. một cuộc sống hạnh phúc.</font></font></p>
+                                    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vì không ai khinh thường, ghét bỏ hay chạy trốn khỏi thú vui vì đó là thú vui, mà vì những người không biết cách theo đuổi thú vui bằng lý trí sẽ phải chịu những đau khổ lớn lao. Hơn nữa, cũng không có ai vì thích đau đớn nên theo đuổi nó, muốn có được nó, nhưng vì những lúc như vậy không bao giờ xảy ra mà người đó tìm kiếm niềm vui lớn lao nào đó thông qua lao động và đau đớn.</font></font></p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile6" role="tabpanel" aria-labelledby="profile-tab6">
+                                <div class="desc-text review-text">
+                                    <div class="product-commnets">
+                                        <div class="product-commnets-list mb-25 pb-15">
+                                            <div class="pro-comments-img">
+                                                <img src="~/img/product/comments/01.png" alt="">
+                                            </div>
+                                            <div class="pro-commnets-text">
+                                                <h4>
+                                                    Roger West -
+                                                    <span>June 5, 2018</span>
+                                                </h4>
+                                                <div class="pro-rating">
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                                    incididunt
+                                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                                    exercitation.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="product-commnets-list mb-25 pb-15">
+                                            <div class="pro-comments-img">
+                                                <img src="~/img/product/comments/02.png" alt="">
+                                            </div>
+                                            <div class="pro-commnets-text">
+                                                <h4>
+                                                    Roger West -
+                                                    <span>June 5, 2018</span>
+                                                </h4>
+                                                <div class="pro-rating">
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                                    incididunt
+                                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                                    exercitation.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-box mt-50">
+                                        <h4>Add a Review</h4>
+                                        <div class="your-rating mb-40">
+                                            <span>Your Rating:</span>
+                                            <div class="rating-list">
+                                                <a href="#">
+                                                    <i class="far fa-star"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="far fa-star"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="far fa-star"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="far fa-star"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="far fa-star"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <form class="review-form" action="#">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <label for="message">YOUR REVIEW</label>
+                                                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label for="r-name">Name</label>
+                                                    <input type="text" id="r-name">
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label for="r-email">Email</label>
+                                                    <input type="email" id="r-email">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <button class="btn theme-btn">Add your Review</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="pro-details-banner">
+                        <a href="shop.html"><img src="~/img/banner/pro-details.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- shop-area end -->
+    <!-- product-area start -->
+    <section class="product-area pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="area-title text-center mb-50">
+                        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm liên quan</font></font></h2>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Duyệt qua nhiều loại sản phẩm của chúng tôi</font></font></p>
+                    </div>
+                </div>
+            </div>
+            <div class="product-slider-2 owl-carousel owl-loaded owl-drag">
+
+
+
+
+
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(-1200px, 0px, 0px); transition: all 0s ease 0s; width: 4400px;">
+                        <div class="owl-item cloned" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro7.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro8.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span>$119.00 USD</span>
+                                                <span class="old-price">$230.00 USD</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro9.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro10.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sale-tag">
+                                            <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                            <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro1.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro11.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sale-tag">
+                                            <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                            <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro4.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro5.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro5.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro6.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sale-tag">
+                                            <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                            <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item active" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro7.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro8.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro9.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro10.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sale-tag">
+                                            <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                            <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro1.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro11.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sale-tag">
+                                            <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                            <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro4.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro5.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro5.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro6.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sale-tag">
+                                            <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                            <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="owl-item cloned" style="width: 370px; margin-right: 30px;">
+                            <div class="pro-item">
+                                <div class="product-wrapper">
+                                    <div class="product-img mb-25">
+                                        <a href="product-details.html">
+                                            <img src="~/img/product/pro7.jpg" alt="">
+                                            <img class="secondary-img" src="~/img/product/pro8.jpg" alt="">
+                                        </a>
+                                        <div class="product-action text-center">
+                                            <a href="#" title="Shoppingb Cart">
+                                                <i class="flaticon-shopping-cart"></i>
+                                            </a>
+                                            <a href="#" title="Quick View">
+                                                <i class="flaticon-eye"></i>
+                                            </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                                <i class="flaticon-compare"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="pro-cat mb-10">
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
+                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
+                                        </div>
+                                        <h4>
+                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo thun Raglan Baseball Style</font></font></a>
+                                        </h4>
+                                        <div class="product-meta">
+                                            <div class="pro-price">
+                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
+                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-wishlist">
+                                            <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="owl-nav"><div class="owl-prev"><i class="fas fa-arrow-left"></i></div><div class="owl-next"><i class="fas fa-arrow-right"></i></div></div><div class="owl-dots disabled"></div>
+            </div>
+        </div>
+    </section>
+    <!-- product-area end -->
+
+
+</main>
