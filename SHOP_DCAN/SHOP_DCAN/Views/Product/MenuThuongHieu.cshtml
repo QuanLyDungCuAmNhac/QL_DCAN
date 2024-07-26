@@ -1,0 +1,23 @@
+﻿@model IEnumerable<SHOP_DCAN.ThuongHieu>
+@if (Model != null && Model.Any())
+{
+
+<div class="shop-widget">
+    <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thương hiệu</font></font></h3>
+    <ul class="shop-link">
+        @foreach (var item in Model)
+        {
+            if (ViewBag.MaTH == item.MaTH)
+            {
+    <li><a href="@Url.Action("Product_ThuongHieu", "Product", new { id = item.MaTH })"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TenTH</font></font></a></li>
+            }
+
+            else
+            {
+        <li><a href="@Url.Action("Product_ThuongHieu", "Product", new { id = item.MaTH })"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TenTH</font></font></a></li>
+            }
+        }
+    </ul>
+        
+</div>}
+

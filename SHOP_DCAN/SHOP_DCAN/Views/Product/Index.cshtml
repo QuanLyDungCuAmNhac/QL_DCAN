@@ -1,4 +1,5 @@
-﻿
+﻿@model PagedList.PagedList<SHOP_DCAN.SanPham>
+@using PagedList.Mvc
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
@@ -28,7 +29,7 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-8">
                     <div class="shop-banner mb-50">
-                        <img src="img/bg/shop-banner.jpg" alt="">
+                        <img src="~/img/banner1.jpg" alt="">
                     </div>
                     <!-- tab filter -->
                     <div class="row mb-10">
@@ -50,10 +51,9 @@
                             </div>
                             <div class="pro-filter mb-40 f-right">
                                 <form action="#">
-                                    <select name="pro-filter" id="pro-filter">
-                                        <option value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mua sắm bởi</font></font></option>
-                                        <option value="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bán chạy nhất</font></font></option>
-                                        <option value="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm mới</font></font></option>
+                                    <select name="pro-filter" id="pro-filter" onchange="location = this.value;">
+                                      
+                                        <option value="@Url.Action("SapXepTheoTen", "Product")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bán chạy nhất</font></font></option>
                                         <option value="4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm từ A đến Z</font></font></option>
                                     </select>
                                 </form>
@@ -64,794 +64,57 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro13.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro14.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
+
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="product-wrapper mb-50">
+                                            <div class="product-img mb-25">
+                                                <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">
+                                                    <img src="~/img/img_product/@item.HinhAnh" alt="">
+                                                    @*<img class="secondary-img" src="#" alt="">*@
                                                 </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span>$119.00 USD</span>
-                                                    <span class="old-price">$230.00 USD</span>
+                                                <div class="product-action text-center">
+                                                    <a href="#" title="Giỏ hàng">
+                                                        <i class="flaticon-shopping-cart"></i>
+                                                    </a>
+                                                    <a href="#" title="Xem lướt qua">
+                                                        <i class="flaticon-eye"></i>
+                                                    </a>
+                                                    <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
+                                                        <i class="flaticon-compare"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="sale-tag">
+                                                    <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                                    <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
                                                 </div>
                                             </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
+                                            <div class="product-content">
+
+                                                <h4>
+                                                    <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TenSP</font></font></a>
+                                                </h4>
+                                                <div class="product-meta">
+                                                    <div class="pro-price">
+                                                        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Common.FormatNumber(item.DonGia, 0) VND</font></font></span>
+                                                        <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-wishlist">
+                                                    <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro15.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro16.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro1.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro2.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro29.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro28.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro3.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro4.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro6.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro7.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro19.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro23.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro33.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro32.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro9.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro10.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="product-wrapper mb-50">
-                                        <div class="product-img mb-25">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro11.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro12.jpg" alt="">
-                                            </a>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Giỏ hàng">
-                                                    <i class="flaticon-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Xem lướt qua">
-                                                    <i class="flaticon-eye"></i>
-                                                </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                                    <i class="flaticon-compare"></i>
-                                                </a>
-                                            </div>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="pro-cat mb-10">
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                                <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                            </div>
-                                            <h4>
-                                                <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                            </h4>
-                                            <div class="product-meta">
-                                                <div class="pro-price">
-                                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                                </div>
-                                            </div>
-                                            <div class="product-wishlist">
-                                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
+
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="product-wrapper mb-30">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro13.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro14.jpg" alt="">
-                                            </a>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="product-content pro-list-content pr-0 mb-50">
-                                        <div class="pro-cat mb-10">
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                        </div>
-                                        <h4>
-                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                        </h4>
-                                        <div class="product-meta mb-10">
-                                            <div class="pro-price">
-                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                            </div>
-                                        </div>
-                                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</font></font></p>
-                                        <div class="product-action">
-                                            <a href="#" title="Giỏ hàng">
-                                                <i class="flaticon-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Xem lướt qua">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
-                                            <a href="#" title="Danh sách mong muốn"><i class="flaticon-like"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="product-wrapper mb-30">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro11.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro12.jpg" alt="">
-                                            </a>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="product-content pro-list-content pr-0 mb-50">
-                                        <div class="pro-cat mb-10">
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                        </div>
-                                        <h4>
-                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                        </h4>
-                                        <div class="product-meta mb-10">
-                                            <div class="pro-price">
-                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                            </div>
-                                        </div>
-                                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</font></font></p>
-                                        <div class="product-action">
-                                            <a href="#" title="Giỏ hàng">
-                                                <i class="flaticon-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Xem lướt qua">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
-                                            <a href="#" title="Danh sách mong muốn"><i class="flaticon-like"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="product-wrapper mb-30">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro15.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro16.jpg" alt="">
-                                            </a>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="product-content pro-list-content pr-0 mb-50">
-                                        <div class="pro-cat mb-10">
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                        </div>
-                                        <h4>
-                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                        </h4>
-                                        <div class="product-meta mb-10">
-                                            <div class="pro-price">
-                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                            </div>
-                                        </div>
-                                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</font></font></p>
-                                        <div class="product-action">
-                                            <a href="#" title="Giỏ hàng">
-                                                <i class="flaticon-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Xem lướt qua">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
-                                            <a href="#" title="Danh sách mong muốn"><i class="flaticon-like"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="product-wrapper mb-30">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro6.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro7.jpg" alt="">
-                                            </a>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="product-content pro-list-content pr-0 mb-50">
-                                        <div class="pro-cat mb-10">
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                        </div>
-                                        <h4>
-                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                        </h4>
-                                        <div class="product-meta mb-10">
-                                            <div class="pro-price">
-                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                            </div>
-                                        </div>
-                                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</font></font></p>
-                                        <div class="product-action">
-                                            <a href="#" title="Giỏ hàng">
-                                                <i class="flaticon-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Xem lướt qua">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
-                                            <a href="#" title="Danh sách mong muốn"><i class="flaticon-like"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="product-wrapper mb-30">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro18.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro19.jpg" alt="">
-                                            </a>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="product-content pro-list-content pr-0 mb-50">
-                                        <div class="pro-cat mb-10">
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                        </div>
-                                        <h4>
-                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                        </h4>
-                                        <div class="product-meta mb-10">
-                                            <div class="pro-price">
-                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                            </div>
-                                        </div>
-                                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</font></font></p>
-                                        <div class="product-action">
-                                            <a href="#" title="Giỏ hàng">
-                                                <i class="flaticon-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Xem lướt qua">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
-                                            <a href="#" title="Danh sách mong muốn"><i class="flaticon-like"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="product-wrapper mb-30">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro5.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro6.jpg" alt="">
-                                            </a>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="product-content pro-list-content pr-0 mb-50">
-                                        <div class="pro-cat mb-10">
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                        </div>
-                                        <h4>
-                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                        </h4>
-                                        <div class="product-meta mb-10">
-                                            <div class="pro-price">
-                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                            </div>
-                                        </div>
-                                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</font></font></p>
-                                        <div class="product-action">
-                                            <a href="#" title="Giỏ hàng">
-                                                <i class="flaticon-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Xem lướt qua">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
-                                            <a href="#" title="Danh sách mong muốn"><i class="flaticon-like"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="product-wrapper mb-30">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro20.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro21.jpg" alt="">
-                                            </a>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="product-content pro-list-content pr-0 mb-50">
-                                        <div class="pro-cat mb-10">
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                        </div>
-                                        <h4>
-                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                        </h4>
-                                        <div class="product-meta mb-10">
-                                            <div class="pro-price">
-                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                            </div>
-                                        </div>
-                                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</font></font></p>
-                                        <div class="product-action">
-                                            <a href="#" title="Giỏ hàng">
-                                                <i class="flaticon-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Xem lướt qua">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
-                                            <a href="#" title="Danh sách mong muốn"><i class="flaticon-like"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-5">
-                                    <div class="product-wrapper mb-30">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="img/product/pro9.jpg" alt="">
-                                                <img class="secondary-img" src="img/product/pro10.jpg" alt="">
-                                            </a>
-                                            <div class="sale-tag">
-                                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-7">
-                                    <div class="product-content pro-list-content pr-0 mb-50">
-                                        <div class="pro-cat mb-10">
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang trí, </font></font></a>
-                                            <a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đồ nội thất</font></font></a>
-                                        </div>
-                                        <h4>
-                                            <a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Troma tối giản</font></font></a>
-                                        </h4>
-                                        <div class="product-meta mb-10">
-                                            <div class="pro-price">
-                                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                            </div>
-                                        </div>
-                                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</font></font></p>
-                                        <div class="product-action">
-                                            <a href="#" title="Giỏ hàng">
-                                                <i class="flaticon-shopping-cart"></i>
-                                            </a>
-                                            <a href="#" title="Xem lướt qua">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
-                                            <a href="#" title="Danh sách mong muốn"><i class="flaticon-like"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      
                     </div>
                     <div class="basic-pagination basic-pagination-2 text-center mt-20">
-                        <ul>
-                            <li><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
-                            <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">01</font></font></a></li>
-                            <li class="active"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">02</font></font></a></li>
-                            <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">03</font></font></a></li>
-                            <li><a href="#"><i class="fas fa-ellipsis-h"></i></a></li>
-                            <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
-                        </ul>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, query = ViewBag.Query }))
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4">
@@ -859,92 +122,26 @@
 
                         <div class="shop-widget">
                             <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tìm kiếm bởi</font></font></h3>
-                            <form action="#" class="shop-search">
-                                <input type="text" placeholder="Từ khóa của bạn....">
-                                <button><i class="fa fa-search"></i></button>
-                            </form>
-                        </div>
+                            @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+                            {
 
-                        <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thương hiệu</font></font></h3>
-                            <ul class="shop-link">
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đỉnh</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">đứa trẻ</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Báo sư tử</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nike</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Likoda</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Piolaba</font></font></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lựa chọn bộ lọc</font></font></h3>
-                            <div class="price-filter">
-                                <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 15%; width: 45%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 15%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 60%;"></span></div>
-                                <input type="text" id="amount">
+                                <input type="text" name="query" placeholder="Nhập từ khóa tìm kiếm..." value="@ViewBag.Query">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            }
                             </div>
-                        </div>
 
-                        <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bộ lọc giá</font></font></h3>
-                            <ul class="shop-link">
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0,00 bảng Anh - 50,00 bảng Anh</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">50,00 bảng Anh - 100,00 bảng Anh</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100,00 bảng Anh - 150,00 bảng Anh</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150,00 bảng Anh - 200,00 bảng Anh</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">£200.00+</font></font></a></li>
-                            </ul>
-                        </div>
+                        @Html.Action("MenuThuongHieu", "Product")
 
-                        <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kích thước sản phẩm</font></font></h3>
-                            <ul class="shop-link">
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">L</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tôi</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">X</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">XL</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">XXL</font></font></a></li>
-                            </ul>
-                        </div>
+                        
 
-                        <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thể loại</font></font></h3>
-                            <ul class="shop-link">
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phụ kiện</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Túi</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quần áo</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đôi giày</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Loại trừ</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chưa phân loại</font></font></a></li>
-                                <li><a href="shop.html"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phụ nữ</font></font></a></li>
-                            </ul>
-                        </div>
 
-                        <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thẻ</font></font></h3>
-                            <ul class="shop-tag">
-                                <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tối thiểu</font></font></a></li>
-                                <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áo phông</font></font></a></li>
-                                <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quần dài</font></font></a></li>
-                                <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quần jean</font></font></a></li>
-                                <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mùa đông</font></font></a></li>
-                                <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Muộn nhất</font></font></a></li>
-                                <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mới</font></font></a></li>
-                                <li><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doanh thu</font></font></a></li>
-                            </ul>
-                        </div>
+                        @Html.Action("MenuLoai", "Product")
 
-                        <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">màu sắc</font></font></h3>
-                            <ul class="shop-link">
-                                <li><a href="shop.html"><span class="blue"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Màu xanh da trời</font></font></a></li>
-                                <li><a href="shop.html"><span class="green"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Màu xanh lá</font></font></a></li>
-                                <li><a href="shop.html"><span class="orange"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quả cam</font></font></a></li>
-                                <li><a href="shop.html"><span class="navy"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hải quân</font></font></a></li>
-                                <li><a href="shop.html"><span class="pinkish"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Màu hồng nhạt</font></font></a></li>
-                                <li><a href="shop.html"><span class="vista"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chế độ xem màu xanh</font></font></a></li>
-                            </ul>
-                        </div>
+
+
+
+
+
 
                         <div class="shop-widget">
                             <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm gần đây</font></font></h3>

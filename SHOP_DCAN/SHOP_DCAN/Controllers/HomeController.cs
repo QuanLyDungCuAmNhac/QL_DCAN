@@ -9,9 +9,12 @@ namespace SHOP_DCAN.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        QL_DCAN2Entities db = new QL_DCAN2Entities();
         public ActionResult Index()
         {
-            return View();
+            var item = db.SanPhams.ToList();
+            return View(item);
+           
         }
 
         public ActionResult About()

@@ -1,0 +1,67 @@
+﻿
+@model IEnumerable<SHOP_DCAN.Models.ShoppingCartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+<main>
+
+    <!-- breadcrumb-area-start -->
+    <section class="breadcrumb-area" data-background="img/bg/page-title.png" style="background-image: url(&quot;img/bg/page-title.png&quot;);">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="breadcrumb-text text-center">
+                        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giỏ hàng</font></font></h1>
+                        <ul class="breadcrumb-menu">
+                            <li><a href="index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang chủ</font></font></a></li>
+                            <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xe đẩy</font></font></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+    <!-- Cart Area Strat-->
+    <section class="cart-area pt-100 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    @*<form action="#">*@
+
+                        @Html.Action("Partial_Item_Cart", "ShoppingCart")
+
+                        <div class="row">
+                            @*<div class="col-md-5 ml-auto">*@
+                            <div class="cart-page-total">
+                                <!--<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tổng số giỏ hàng</font></font></h2>
+    <ul class="mb-20">
+        <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tổng cộng</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">454333</font></font></span></li>-->
+                                @* <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tổng cộng</font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250,00 đô la</font></font></span></li>*@
+                                <!--</ul>-->
+                                @*<a class="btn theme-btn" href="@Url.Action("CheckOut","ShoppingCart")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tiến hành kiểm tra</font></font></a>*@
+                                @*<button onclick="proceedToCheckout()">Tiến hành kiểm tra</button>*@
+                                <form action="@Url.Action("ProceedToCheckout", "ShoppingCart")" method="post">
+                                  
+                                    <div class="row">
+                                        <div class="cart-page-total">
+                                            <button type="submit" class="btn theme-btn">Tiến hành kiểm tra</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <p>@ViewBag.Message</p>
+                            </div>
+                            @*  *@<!--</div>-->
+                        </div>
+
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Cart Area End-->
+
+
+</main>
+

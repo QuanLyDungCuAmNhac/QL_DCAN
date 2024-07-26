@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+<main>
+
+    <!-- breadcrumb-area-start -->
+    <section class="breadcrumb-area" data-background="img/bg/page-title.png" style="background-image: url(&quot;img/bg/page-title.png&quot;);">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="breadcrumb-text text-center">
+                        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thủ tục thanh toán</font></font></h1>
+                        <ul class="breadcrumb-menu">
+                            <li><a href="index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang chủ</font></font></a></li>
+                            <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thủ tục thanh toán</font></font></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+    <!-- coupon-area start -->
+    <section class="coupon-area pt-100 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="coupon-accordion">
+                        <!-- ACCORDION START -->
+                        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Khách hàng quay lại? </font></font><span id="showlogin"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhấp vào đây để đăng nhập</font></font></span></h3>
+                        <div id="checkout-login" class="coupon-content">
+                            <div class="coupon-info">
+                                <p class="coupon-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mọi người đang mang thai đều phải có bằng tốt nghiệp trung học. Tuy nhiên, ngày mai sẽ có rất nhiều tang thương.</font></font></p>
+                                <form action="#">
+                                    <p class="form-row-first">
+                                        <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tên người dùng hoặc email </font></font><span class="required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span></label>
+                                        <input type="text">
+                                    </p>
+                                    <p class="form-row-last">
+                                        <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mật khẩu </font></font><span class="required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span></label>
+                                        <input type="text">
+                                    </p>
+                                    <p class="form-row">
+                                        <button class="btn theme-btn" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng nhập</font></font></button>
+                                        <label>
+                                            <input type="checkbox"><font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">
+                                                    Nhớ tôi nhé
+                                                </font>
+                                            </font>
+                                        </label>
+                                    </p>
+                                    <p class="lost-password">
+                                        <a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quên mật khẩu?</font></font></a>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- ACCORDION END -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="coupon-accordion">
+                        <!-- ACCORDION START -->
+                        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Có phiếu giảm giá? </font></font><span id="showcoupon"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhấp vào đây để nhập mã của bạn</font></font></span></h3>
+                        <div id="checkout_coupon" class="coupon-checkout-content">
+                            <div class="coupon-info">
+                                <form action="#">
+                                    <p class="checkout-coupon">
+                                        <input type="text" placeholder="mã giảm giá">
+                                        <button class="btn theme-btn" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Áp dụng phiếu giảm giá</font></font></button>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- ACCORDION END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- coupon-area end -->
+    <!-- checkout-area start -->
+    <section class="checkout-area pb-70">
+        <div class="container">
+           
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="checkbox-form">
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chi tiết thanh toán</font></font></h3>
+                         
+                    @using (Html.BeginForm("CheckOut", "ShoppingCart", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.Action("Partial_CheckOut", "ShoppingCart")
+                        <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
+                    }
+          </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="your-order mb-30 ">
+                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đơn hàng của bạn</font></font></h3>
+                          
+                            @Html.Action("Partial_Item_ThanhToan", "ShoppingCart")
+                            <div class="payment-method">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">
+                                                            Chuyển khoản trực tiếp
+                                                        </font>
+                                                    </font>
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">
+                                                        Thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng Mã đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng của bạn sẽ không được giao cho đến khi tiền được chuyển vào tài khoản của chúng tôi.
+                                                    </font>
+                                                </font>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">
+                                                            Thanh toán séc
+                                                        </font>
+                                                    </font>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">
+                                                        Vui lòng gửi séc đến Tên cửa hàng, Đường phố của cửa hàng, Thị trấn của cửa hàng, Tiểu bang/Quận của cửa hàng, Mã bưu chính của cửa hàng.
+                                                    </font>
+                                                </font>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="mb-0">
+                                                <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">
+                                                            PayPal
+                                                        </font>
+                                                    </font>
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">
+                                                        Thanh toán qua PayPal; bạn có thể thanh toán bằng thẻ tín dụng nếu bạn không có tài khoản PayPal.
+                                                    </font>
+                                                </font>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-button-payment mt-20">
+                                    <button type="submit" class="btn theme-btn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đặt hàng</font></font></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+    </section>
+    <!-- checkout-area end -->
+
+
+</main>
+<script src="https://esgoo.net/scripts/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        // Lấy tỉnh thành
+        $.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm', function(data_tinh) {
+            if (data_tinh.error == 0) {
+                $.each(data_tinh.data, function(key_tinh, val_tinh) {
+                    $("#tinh").append('<option value="' + val_tinh.id + '">' + val_tinh.full_name + '</option>');
+                });
+                $("#tinh").change(function(e) {
+                    var idtinh = $(this).val();
+                    var tenTinh = $("#tinh option:selected").text(); // Lấy tên tỉnh được chọn
+                    $("#hidden_tinh").val(tenTinh); // Đặt giá trị của trường ẩn để gửi tên tỉnh về server
+
+                    // Lấy quận huyện
+                    $.getJSON('https://esgoo.net/api-tinhthanh/2/' + idtinh + '.htm', function(data_quan) {
+                        if (data_quan.error == 0) {
+                            $("#quan").html('<option value="0">Quận Huyện</option>');
+                            $("#phuong").html('<option value="0">Phường Xã</option>');
+                            $.each(data_quan.data, function(key_quan, val_quan) {
+                                $("#quan").append('<option value="' + val_quan.id + '">' + val_quan.full_name + '</option>');
+                            });
+                        }
+                    });
+                });
+            }
+        });
+
+        // Lấy phường xã khi chọn quận huyện
+        $("#quan").change(function(e) {
+            var idquan = $(this).val();
+            var tenQuan = $("#quan option:selected").text(); // Lấy tên quận huyện được chọn
+            $("#hidden_quan").val(tenQuan); // Đặt giá trị của trường ẩn để gửi tên quận huyện về server
+
+            $.getJSON('https://esgoo.net/api-tinhthanh/3/' + idquan + '.htm', function(data_phuong) {
+                if (data_phuong.error == 0) {
+                    $("#phuong").html('<option value="0">Phường Xã</option>');
+                    $.each(data_phuong.data, function(key_phuong, val_phuong) {
+                        $("#phuong").append('<option value="' + val_phuong.id + '">' + val_phuong.full_name + '</option>');
+                    });
+                }
+            });
+        });
+
+        // Lấy phường xã khi chọn phường xã
+        $("#phuong").change(function(e) {
+            var tenPhuong = $("#phuong option:selected").text(); // Lấy tên phường xã được chọn
+            $("#hidden_phuong").val(tenPhuong); // Đặt giá trị của trường ẩn để gửi tên phường xã về server
+        });
+    });</script>

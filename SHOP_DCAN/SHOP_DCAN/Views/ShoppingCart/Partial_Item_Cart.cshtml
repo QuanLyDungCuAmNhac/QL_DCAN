@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SHOP_DCAN.Models.ShoppingCartItem>
+
+<div class="table-content table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="product-thumbnail"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">STT</font></font></th>
+                <th class="product-thumbnail"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hình ảnh</font></font></th>
+                <th class="cart-product-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm</font></font></th>
+                <th class="product-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đơn giá</font></font></th>
+                <th class="product-quantity"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Số lượng</font></font></th>
+                <th class="product-subtotal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tổng cộng</font></font></th>
+                <th class="product-remove"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Di dời</font></font></th>
+            </tr>
+        </thead>
+        <tbody>
+            @*<tr>
+                    <td class="product-thumbnail"><a href="#"><img src="img/product/pro1.jpg" alt=""></a></td>
+                    <td class="product-name"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Bakix</font></font></a></td>
+                    <td class="product-price"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130,00 đô la</font></font></span></td>
+                    <td class="product-quantity">
+                        <div class="cart-plus-minus"><input type="text" value="1"><div class="dec qtybutton"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></div><div class="inc qtybutton"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">+</font></font></div></div>
+                    </td>
+                    <td class="product-subtotal"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130,00 đô la</font></font></span></td>
+                    <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+                </tr>*@
+            @if (Model != null && Model.Any())
+            {
+                var i = 0;
+                var tongtien = decimal.Zero;
+                foreach (var item in Model)
+                {
+                    tongtien += item.TotalPrice;
+                    <tr class="text-center" id="trow_@item.ProductId">
+                        <td>@(i+1)</td>
+                        <td class="product-thumbnail"><a href="#"><img src="~/img/img_product/@item.ProductImg" width="60" alt=""></a></td>
+                        <td class="product-name"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item.ProductName</font></font></a></td>
+                        <td class="product-price"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Common.FormatNumber(item.Price, 0)</font></font></span></td>
+                        <td class="product-quantity"><input type="number" class="form-control" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
+                        <td class="product-subtotal"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Common.FormatNumber(item.TotalPrice, 2)</font></font></span></td>
+                        <td class="product-remove">
+                            <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnDelete"><i class="fa fa-times"></i></a>
+                            <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnUpdate"><i class="fa fa-edit"></i></a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+                <tr>
+                    <th colspan="6" class="text-right">Tổng: </th>
+                    <th class="text-center">@Common.FormatNumber(tongtien, 0) VND</th>
+                    <th></th>
+                </tr>
+
+            }
+            else
+            {
+                <tr>
+                    <th colspan="7">Không có sản phẩm trong giỏ hàng!!</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
