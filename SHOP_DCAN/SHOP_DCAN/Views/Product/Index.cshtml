@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="breadcrumb-text text-center">
-                        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cửa hàng của chúng tôi</font></font></h1>
+                        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family: 'Segoe UI'">Cửa hàng của chúng tôi</font></font></h1>
                         <ul class="breadcrumb-menu">
                             <li><a href="index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang chủ</font></font></a></li>
                             <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">cửa hàng</font></font></span></li>
@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-8">
                     <div class="shop-banner mb-50">
-                        <img src="~/img/banner1.jpg" alt="">
+                        <img src="~/assets/img/banner1.jpg" alt="">
                     </div>
                     <!-- tab filter -->
                     <div class="row mb-10">
@@ -71,7 +71,7 @@
                                         <div class="product-wrapper mb-50">
                                             <div class="product-img mb-25">
                                                 <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">
-                                                    <img src="~/img/img_product/@item.HinhAnh" alt="">
+                                                    <img src="https://res.cloudinary.com/deuokbfws/image/upload/v1722077825/@item.HinhAnh" alt="">
                                                     @*<img class="secondary-img" src="#" alt="">*@
                                                 </a>
                                                 <div class="product-action text-center">
@@ -121,11 +121,11 @@
                     <div class="sidebar-box">
 
                         <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tìm kiếm bởi</font></font></h3>
+                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family: 'Segoe UI'">Tìm kiếm bởi</font></font></h3>
                             @using (Html.BeginForm("Index", "Product", FormMethod.Get))
                             {
 
-                                <input type="text" name="query" placeholder="Nhập từ khóa tìm kiếm..." value="@ViewBag.Query">
+                                <input type="text" name="query" placeholder="Nhập từ khóa..." value="@ViewBag.Query" style="height:35px">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             }
                             </div>
@@ -139,91 +139,9 @@
 
 
 
-
-
-
-
-                        <div class="shop-widget">
-                            <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sản phẩm gần đây</font></font></h3>
-                            <ul class="shop-sidebar-product">
-                                <li>
-                                    <div class="side-pro-img">
-                                        <a href="product-details.html"><img src="img/product/latest/shop-rsp1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="side-pro-content">
-                                        <div class="side-pro-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <h5><a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Raglan Bóng Chày-Phong Cách</font></font></a></h5>
-                                        <div class="side-pro-price">
-                                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">119,00 đô la Mỹ</font></font></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="side-pro-img">
-                                        <a href="product-details.html"><img src="img/product/latest/shop-rsp3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="side-pro-content">
-                                        <div class="side-pro-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <h5><a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Raglan Bóng Chày-Phong Cách</font></font></a></h5>
-                                        <div class="side-pro-price">
-                                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">119,00 đô la Mỹ</font></font></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="side-pro-img">
-                                        <a href="product-details.html"><img src="img/product/latest/shop-rsp2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="side-pro-content">
-                                        <div class="side-pro-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <h5><a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Raglan Bóng Chày-Phong Cách</font></font></a></h5>
-                                        <div class="side-pro-price">
-                                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">119,00 đô la Mỹ</font></font></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="side-pro-img">
-                                        <a href="product-details.html"><img src="img/product/latest/shop-rsp4.jpg" alt=""></a>
-                                    </div>
-                                    <div class="side-pro-content">
-                                        <div class="side-pro-rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <h5><a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Raglan Bóng Chày-Phong Cách</font></font></a></h5>
-                                        <div class="side-pro-price">
-                                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">119,00 đô la Mỹ</font></font></span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
                         <div class="shop-widget">
                             <div class="shop-sidebar-banner">
-                                <a href="shop.html"><img src="img/banner/shop-banner.jpg" alt=""></a>
+                                <a href="shop.html"><img src="~/assets/img/new_1.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>

@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CloudinaryDotNet, Version=1.26.2.0, Culture=neutral, PublicKeyToken=c8234dc617ae7841, processorArchitecture=MSIL">
+      <HintPath>..\packages\CloudinaryDotNet.1.26.2\lib\net452\CloudinaryDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -50,14 +53,63 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -102,194 +154,193 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\img\bg\bg-map.html" />
+    <Content Include="assets\css\animate.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\default.css" />
+    <Content Include="assets\css\flaticon.css" />
+    <Content Include="assets\css\fontawesome-all.min.css" />
+    <Content Include="assets\css\images\ui-icons_444444_256x240.html" />
+    <Content Include="assets\css\images\ui-icons_555555_256x240.html" />
+    <Content Include="assets\css\images\ui-icons_777620_256x240.html" />
+    <Content Include="assets\css\images\ui-icons_777777_256x240.html" />
+    <Content Include="assets\css\images\ui-icons_cc0000_256x240.html" />
+    <Content Include="assets\css\images\ui-icons_ffffff_256x240.html" />
+    <Content Include="assets\css\jquery-ui.css" />
+    <Content Include="assets\css\magnific-popup.css" />
+    <Content Include="assets\css\meanmenu.css" />
+    <Content Include="assets\css\owl.carousel.min.css" />
+    <Content Include="assets\css\owl.video.play.html" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\slick.css" />
+    <Content Include="assets\css\style.css" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="css\animate.min.css" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\default.css" />
-    <Content Include="css\flaticon.css" />
-    <Content Include="css\fontawesome-all.min.css" />
-    <Content Include="css\images\ui-icons_444444_256x240.html" />
-    <Content Include="css\images\ui-icons_555555_256x240.html" />
-    <Content Include="css\images\ui-icons_777620_256x240.html" />
-    <Content Include="css\images\ui-icons_777777_256x240.html" />
-    <Content Include="css\images\ui-icons_cc0000_256x240.html" />
-    <Content Include="css\images\ui-icons_ffffff_256x240.html" />
-    <Content Include="css\jquery-ui.css" />
-    <Content Include="css\magnific-popup.css" />
-    <Content Include="css\meanmenu.css" />
-    <Content Include="css\owl.carousel.min.css" />
-    <Content Include="css\owl.video.play.html" />
-    <Content Include="css\responsive.css" />
-    <Content Include="css\slick.css" />
-    <Content Include="css\style.css" />
-    <Content Include="fonts\fa-brands-400.svg" />
-    <Content Include="fonts\fa-regular-400.svg" />
-    <Content Include="fonts\fa-solid-900.svg" />
-    <Content Include="fonts\Flaticon.svg" />
+    <Content Include="assets\fonts\fa-brands-400.svg" />
+    <Content Include="assets\fonts\fa-regular-400.svg" />
+    <Content Include="assets\fonts\fa-solid-900.svg" />
+    <Content Include="assets\fonts\Flaticon.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\banner\add.jpg" />
-    <Content Include="img\banner\banner-1\banner1.jpg" />
-    <Content Include="img\banner\banner-1\banner2.jpg" />
-    <Content Include="img\banner\banner-1\banner3.jpg" />
-    <Content Include="img\banner\banner-2\banner1.jpg" />
-    <Content Include="img\banner\banner-2\banner2.jpg" />
-    <Content Include="img\banner\banner-2\banner3.jpg" />
-    <Content Include="img\banner\banner-2\banner4.jpg" />
-    <Content Include="img\banner\banner-5\banner1.jpg" />
-    <Content Include="img\banner\banner-5\banner2.jpg" />
-    <Content Include="img\banner\banner-5\banner3.jpg" />
-    <Content Include="img\banner\banner-5\banner4.jpg" />
-    <Content Include="img\banner\banner-5\banner5.jpg" />
-    <Content Include="img\banner\pro-details.jpg" />
-    <Content Include="img\banner\shop-banner.jpg" />
-    <Content Include="img\banner\top-seller\banner1.jpg" />
-    <Content Include="img\banner\top-seller\banner2.jpg" />
-    <Content Include="img\bg\banner.jpg" />
-    <Content Include="img\bg\bg.jpg" />
-    <Content Include="img\bg\bg2.jpg" />
-    <Content Include="img\bg\footer.jpg" />
-    <Content Include="img\bg\header-sep.png" />
-    <Content Include="img\bg\mission.jpg" />
-    <Content Include="img\bg\page-title.png" />
-    <Content Include="img\bg\servie-pattern.png" />
-    <Content Include="img\bg\shop-banner-2.jpg" />
-    <Content Include="img\bg\shop-banner.jpg" />
-    <Content Include="img\bg\video.jpg" />
-    <Content Include="img\blog\b1.jpg" />
-    <Content Include="img\blog\b10.jpg" />
-    <Content Include="img\blog\b11.jpg" />
-    <Content Include="img\blog\b2.jpg" />
-    <Content Include="img\blog\b3.jpg" />
-    <Content Include="img\blog\b4.jpg" />
-    <Content Include="img\blog\b5.jpg" />
-    <Content Include="img\blog\b6.jpg" />
-    <Content Include="img\blog\b7.jpg" />
-    <Content Include="img\blog\b8.jpg" />
-    <Content Include="img\blog\b9.jpg" />
-    <Content Include="img\blog\details\author.png" />
-    <Content Include="img\blog\details\banner.jpg" />
-    <Content Include="img\blog\details\comments1.png" />
-    <Content Include="img\blog\details\comments2.png" />
-    <Content Include="img\blog\details\img1.jpg" />
-    <Content Include="img\blog\details\img2.jpg" />
-    <Content Include="img\blog\details\img3.jpg" />
-    <Content Include="img\blog\details\me.png" />
-    <Content Include="img\blog\latest\lb1.jpg" />
-    <Content Include="img\blog\latest\lb10.jpg" />
-    <Content Include="img\blog\latest\lb11.jpg" />
-    <Content Include="img\blog\latest\lb12.jpg" />
-    <Content Include="img\blog\latest\lb13.jpg" />
-    <Content Include="img\blog\latest\lb2.jpg" />
-    <Content Include="img\blog\latest\lb3.jpg" />
-    <Content Include="img\blog\latest\lb4.jpg" />
-    <Content Include="img\blog\latest\lb5.jpg" />
-    <Content Include="img\blog\latest\lb6.jpg" />
-    <Content Include="img\blog\latest\lb8.jpg" />
-    <Content Include="img\blog\latest\lb9.jpg" />
-    <Content Include="img\blog\ms1.jpg" />
-    <Content Include="img\blog\ms2.jpg" />
-    <Content Include="img\blog\ms3.jpg" />
-    <Content Include="img\blog\ms4.jpg" />
-    <Content Include="img\favicon.png" />
-    <Content Include="img\icon\filter.png" />
-    <Content Include="img\icon\look.png" />
-    <Content Include="img\icon\subscribe.png" />
-    <Content Include="img\icon\time.png" />
-    <Content Include="img\instagram\insta1.jpg" />
-    <Content Include="img\instagram\insta2.jpg" />
-    <Content Include="img\instagram\insta3.jpg" />
-    <Content Include="img\instagram\insta4.jpg" />
-    <Content Include="img\instagram\insta5.jpg" />
-    <Content Include="img\instagram\insta6.jpg" />
-    <Content Include="img\logo\footer-logo.png" />
-    <Content Include="img\logo\logo-white.png" />
-    <Content Include="img\logo\logo.png" />
-    <Content Include="img\product\comments\01.png" />
-    <Content Include="img\product\comments\02.png" />
-    <Content Include="img\product\latest\shop-rsp1.jpg" />
-    <Content Include="img\product\latest\shop-rsp2.jpg" />
-    <Content Include="img\product\latest\shop-rsp3.jpg" />
-    <Content Include="img\product\latest\shop-rsp4.jpg" />
-    <Content Include="img\product\pro1.jpg" />
-    <Content Include="img\product\pro10.jpg" />
-    <Content Include="img\product\pro11.jpg" />
-    <Content Include="img\product\pro12.jpg" />
-    <Content Include="img\product\pro13.jpg" />
-    <Content Include="img\product\pro14.jpg" />
-    <Content Include="img\product\pro15.jpg" />
-    <Content Include="img\product\pro16.jpg" />
-    <Content Include="img\product\pro17.jpg" />
-    <Content Include="img\product\pro18.jpg" />
-    <Content Include="img\product\pro19.jpg" />
-    <Content Include="img\product\pro2.jpg" />
-    <Content Include="img\product\pro20.jpg" />
-    <Content Include="img\product\pro21.jpg" />
-    <Content Include="img\product\pro22.jpg" />
-    <Content Include="img\product\pro23.jpg" />
-    <Content Include="img\product\pro24.jpg" />
-    <Content Include="img\product\pro25.jpg" />
-    <Content Include="img\product\pro26.jpg" />
-    <Content Include="img\product\pro27.jpg" />
-    <Content Include="img\product\pro28.jpg" />
-    <Content Include="img\product\pro29.jpg" />
-    <Content Include="img\product\pro3.jpg" />
-    <Content Include="img\product\pro30.jpg" />
-    <Content Include="img\product\pro31.jpg" />
-    <Content Include="img\product\pro32.jpg" />
-    <Content Include="img\product\pro33.jpg" />
-    <Content Include="img\product\pro34.jpg" />
-    <Content Include="img\product\pro4.jpg" />
-    <Content Include="img\product\pro5.jpg" />
-    <Content Include="img\product\pro6.jpg" />
-    <Content Include="img\product\pro7.jpg" />
-    <Content Include="img\product\pro8.jpg" />
-    <Content Include="img\product\pro9.jpg" />
-    <Content Include="img\slider\shape-icon-2.png" />
-    <Content Include="img\slider\shape-icon.png" />
-    <Content Include="img\slider\shape1.png" />
-    <Content Include="img\slider\shape2.png" />
-    <Content Include="img\slider\shape3.png" />
-    <Content Include="img\slider\shape4.png" />
-    <Content Include="img\slider\slide-thumb-2.png" />
-    <Content Include="img\slider\slide-thumb-3.png" />
-    <Content Include="img\slider\slide-thumb.png" />
-    <Content Include="img\slider\slide1-1.jpg" />
-    <Content Include="img\slider\slide1.jpg" />
-    <Content Include="img\slider\slide2-1.jpg" />
-    <Content Include="img\slider\slide2-2.jpg" />
-    <Content Include="img\slider\slide2-3.jpg" />
-    <Content Include="img\slider\slide3-2.jpg" />
-    <Content Include="img\slider\slide3-3.jpg" />
-    <Content Include="img\slider\slide3.jpg" />
-    <Content Include="img\slider\slide5-2.jpg" />
-    <Content Include="img\slider\slide5-3.jpg" />
-    <Content Include="img\slider\slide5.jpg" />
-    <Content Include="img\slider\slide6-2.jpg" />
-    <Content Include="img\slider\slide6-3.jpg" />
-    <Content Include="img\slider\slide6.jpg" />
-    <Content Include="img\team\team4.jpg" />
-    <Content Include="img\team\team5.jpg" />
-    <Content Include="img\team\team6.jpg" />
-    <Content Include="js\ajax-form.js" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\imagesloaded.pkgd.min.js" />
-    <Content Include="js\instafeed.min.js" />
-    <Content Include="js\isotope.pkgd.min.js" />
-    <Content Include="js\jquery-ui.js" />
-    <Content Include="js\jquery.final-countdown.min.js" />
-    <Content Include="js\jquery.magnific-popup.min.js" />
-    <Content Include="js\jquery.meanmenu.min.js" />
-    <Content Include="js\jquery.scrollUp.min.js" />
-    <Content Include="js\jsShopping.js" />
-    <Content Include="js\main.js" />
-    <Content Include="js\one-page-nav-min.js" />
-    <Content Include="js\owl.carousel.min.js" />
-    <Content Include="js\plugins.js" />
-    <Content Include="js\popper.min.js" />
-    <Content Include="js\slick.min.js" />
-    <Content Include="js\vendor\jquery-1.12.4.min.js" />
-    <Content Include="js\wow.min.js" />
+    <Content Include="assets\img\banner\add.jpg" />
+    <Content Include="assets\img\banner\banner-1\banner1.jpg" />
+    <Content Include="assets\img\banner\banner-1\banner2.jpg" />
+    <Content Include="assets\img\banner\banner-1\banner3.jpg" />
+    <Content Include="assets\img\banner\banner-2\banner1.jpg" />
+    <Content Include="assets\img\banner\banner-2\banner2.jpg" />
+    <Content Include="assets\img\banner\banner-2\banner3.jpg" />
+    <Content Include="assets\img\banner\banner-2\banner4.jpg" />
+    <Content Include="assets\img\banner\banner-5\banner1.jpg" />
+    <Content Include="assets\img\banner\banner-5\banner2.jpg" />
+    <Content Include="assets\img\banner\banner-5\banner3.jpg" />
+    <Content Include="assets\img\banner\banner-5\banner4.jpg" />
+    <Content Include="assets\img\banner\banner-5\banner5.jpg" />
+    <Content Include="assets\img\banner\pro-details.jpg" />
+    <Content Include="assets\img\banner\shop-banner.jpg" />
+    <Content Include="assets\img\banner\top-seller\banner1.jpg" />
+    <Content Include="assets\img\banner\top-seller\banner2.jpg" />
+    <Content Include="assets\img\bg\banner.jpg" />
+    <Content Include="assets\img\bg\bg.jpg" />
+    <Content Include="assets\img\bg\bg2.jpg" />
+    <Content Include="assets\img\bg\footer.jpg" />
+    <Content Include="assets\img\bg\header-sep.png" />
+    <Content Include="assets\img\bg\mission.jpg" />
+    <Content Include="assets\img\bg\page-title.png" />
+    <Content Include="assets\img\bg\servie-pattern.png" />
+    <Content Include="assets\img\bg\shop-banner-2.jpg" />
+    <Content Include="assets\img\bg\shop-banner.jpg" />
+    <Content Include="assets\img\bg\video.jpg" />
+    <Content Include="assets\img\blog\b1.jpg" />
+    <Content Include="assets\img\blog\b10.jpg" />
+    <Content Include="assets\img\blog\b11.jpg" />
+    <Content Include="assets\img\blog\b2.jpg" />
+    <Content Include="assets\img\blog\b3.jpg" />
+    <Content Include="assets\img\blog\b4.jpg" />
+    <Content Include="assets\img\blog\b5.jpg" />
+    <Content Include="assets\img\blog\b6.jpg" />
+    <Content Include="assets\img\blog\b7.jpg" />
+    <Content Include="assets\img\blog\b8.jpg" />
+    <Content Include="assets\img\blog\b9.jpg" />
+    <Content Include="assets\img\blog\details\author.png" />
+    <Content Include="assets\img\blog\details\banner.jpg" />
+    <Content Include="assets\img\blog\details\comments1.png" />
+    <Content Include="assets\img\blog\details\comments2.png" />
+    <Content Include="assets\img\blog\details\img1.jpg" />
+    <Content Include="assets\img\blog\details\img2.jpg" />
+    <Content Include="assets\img\blog\details\img3.jpg" />
+    <Content Include="assets\img\blog\details\me.png" />
+    <Content Include="assets\img\blog\latest\lb1.jpg" />
+    <Content Include="assets\img\blog\latest\lb10.jpg" />
+    <Content Include="assets\img\blog\latest\lb11.jpg" />
+    <Content Include="assets\img\blog\latest\lb12.jpg" />
+    <Content Include="assets\img\blog\latest\lb13.jpg" />
+    <Content Include="assets\img\blog\latest\lb2.jpg" />
+    <Content Include="assets\img\blog\latest\lb3.jpg" />
+    <Content Include="assets\img\blog\latest\lb4.jpg" />
+    <Content Include="assets\img\blog\latest\lb5.jpg" />
+    <Content Include="assets\img\blog\latest\lb6.jpg" />
+    <Content Include="assets\img\blog\latest\lb8.jpg" />
+    <Content Include="assets\img\blog\latest\lb9.jpg" />
+    <Content Include="assets\img\blog\ms1.jpg" />
+    <Content Include="assets\img\blog\ms2.jpg" />
+    <Content Include="assets\img\blog\ms3.jpg" />
+    <Content Include="assets\img\blog\ms4.jpg" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\icon\filter.png" />
+    <Content Include="assets\img\icon\look.png" />
+    <Content Include="assets\img\icon\subscribe.png" />
+    <Content Include="assets\img\icon\time.png" />
+    <Content Include="assets\img\instagram\insta1.jpg" />
+    <Content Include="assets\img\instagram\insta2.jpg" />
+    <Content Include="assets\img\instagram\insta3.jpg" />
+    <Content Include="assets\img\instagram\insta4.jpg" />
+    <Content Include="assets\img\instagram\insta5.jpg" />
+    <Content Include="assets\img\instagram\insta6.jpg" />
+    <Content Include="assets\img\logo\footer-logo.png" />
+    <Content Include="assets\img\logo\logo-white.png" />
+    <Content Include="assets\img\logo\logo.png" />
+    <Content Include="assets\img\product\comments\01.png" />
+    <Content Include="assets\img\product\comments\02.png" />
+    <Content Include="assets\img\product\latest\shop-rsp1.jpg" />
+    <Content Include="assets\img\product\latest\shop-rsp2.jpg" />
+    <Content Include="assets\img\product\latest\shop-rsp3.jpg" />
+    <Content Include="assets\img\product\latest\shop-rsp4.jpg" />
+    <Content Include="assets\img\product\pro1.jpg" />
+    <Content Include="assets\img\product\pro10.jpg" />
+    <Content Include="assets\img\product\pro11.jpg" />
+    <Content Include="assets\img\product\pro12.jpg" />
+    <Content Include="assets\img\product\pro13.jpg" />
+    <Content Include="assets\img\product\pro14.jpg" />
+    <Content Include="assets\img\product\pro15.jpg" />
+    <Content Include="assets\img\product\pro16.jpg" />
+    <Content Include="assets\img\product\pro17.jpg" />
+    <Content Include="assets\img\product\pro18.jpg" />
+    <Content Include="assets\img\product\pro19.jpg" />
+    <Content Include="assets\img\product\pro2.jpg" />
+    <Content Include="assets\img\product\pro20.jpg" />
+    <Content Include="assets\img\product\pro21.jpg" />
+    <Content Include="assets\img\product\pro22.jpg" />
+    <Content Include="assets\img\product\pro23.jpg" />
+    <Content Include="assets\img\product\pro24.jpg" />
+    <Content Include="assets\img\product\pro25.jpg" />
+    <Content Include="assets\img\product\pro26.jpg" />
+    <Content Include="assets\img\product\pro27.jpg" />
+    <Content Include="assets\img\product\pro28.jpg" />
+    <Content Include="assets\img\product\pro29.jpg" />
+    <Content Include="assets\img\product\pro3.jpg" />
+    <Content Include="assets\img\product\pro30.jpg" />
+    <Content Include="assets\img\product\pro31.jpg" />
+    <Content Include="assets\img\product\pro32.jpg" />
+    <Content Include="assets\img\product\pro33.jpg" />
+    <Content Include="assets\img\product\pro34.jpg" />
+    <Content Include="assets\img\product\pro4.jpg" />
+    <Content Include="assets\img\product\pro5.jpg" />
+    <Content Include="assets\img\product\pro6.jpg" />
+    <Content Include="assets\img\product\pro7.jpg" />
+    <Content Include="assets\img\product\pro8.jpg" />
+    <Content Include="assets\img\product\pro9.jpg" />
+    <Content Include="assets\img\slider\shape-icon-2.png" />
+    <Content Include="assets\img\slider\shape-icon.png" />
+    <Content Include="assets\img\slider\shape1.png" />
+    <Content Include="assets\img\slider\shape2.png" />
+    <Content Include="assets\img\slider\shape3.png" />
+    <Content Include="assets\img\slider\shape4.png" />
+    <Content Include="assets\img\slider\slide-thumb-2.png" />
+    <Content Include="assets\img\slider\slide-thumb-3.png" />
+    <Content Include="assets\img\slider\slide-thumb.png" />
+    <Content Include="assets\img\slider\slide1-1.jpg" />
+    <Content Include="assets\img\slider\slide1.jpg" />
+    <Content Include="assets\img\slider\slide2-1.jpg" />
+    <Content Include="assets\img\slider\slide2-2.jpg" />
+    <Content Include="assets\img\slider\slide2-3.jpg" />
+    <Content Include="assets\img\slider\slide3-2.jpg" />
+    <Content Include="assets\img\slider\slide3-3.jpg" />
+    <Content Include="assets\img\slider\slide3.jpg" />
+    <Content Include="assets\img\slider\slide5-2.jpg" />
+    <Content Include="assets\img\slider\slide5-3.jpg" />
+    <Content Include="assets\img\slider\slide5.jpg" />
+    <Content Include="assets\img\slider\slide6-2.jpg" />
+    <Content Include="assets\img\slider\slide6-3.jpg" />
+    <Content Include="assets\img\slider\slide6.jpg" />
+    <Content Include="assets\img\team\team4.jpg" />
+    <Content Include="assets\img\team\team5.jpg" />
+    <Content Include="assets\img\team\team6.jpg" />
+    <Content Include="assets\js\ajax-form.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\imagesloaded.pkgd.min.js" />
+    <Content Include="assets\js\instafeed.min.js" />
+    <Content Include="assets\js\isotope.pkgd.min.js" />
+    <Content Include="assets\js\jquery-ui.js" />
+    <Content Include="assets\js\jquery.final-countdown.min.js" />
+    <Content Include="assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="assets\js\jquery.meanmenu.min.js" />
+    <Content Include="assets\js\jquery.scrollUp.min.js" />
+    <Content Include="assets\js\jsShopping.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\one-page-nav-min.js" />
+    <Content Include="assets\js\owl.carousel.min.js" />
+    <Content Include="assets\js\plugins.js" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="assets\js\slick.min.js" />
+    <Content Include="assets\js\vendor\jquery-1.12.4.min.js" />
+    <Content Include="assets\js\wow.min.js" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -307,15 +358,10 @@
     <Compile Include="ChiTietHoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="CloudinaryService.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BlogController.cs" />
-    <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\DangKyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="DM_ManHinh.cs">
@@ -323,9 +369,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="HinhAnh.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="HoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -358,9 +401,15 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\CheckoutView.cs" />
+    <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\ForgotPasswordViewModel.cs" />
+    <Compile Include="Models\GoogleUserInfo.cs" />
     <Compile Include="Models\LoginView.cs" />
+    <Compile Include="Models\Momo.cs" />
     <Compile Include="Models\RegisterView.cs" />
+    <Compile Include="Models\ResetPasswordViewModel.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\Tokenclass.cs" />
     <Compile Include="NhaCungCap.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -368,9 +417,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QL_NguoiDung.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="QL_NguoiDungNhomNguoiDung.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -389,26 +435,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="fonts\fa-brands-400.eot" />
-    <Content Include="fonts\fa-brands-400.ttf" />
-    <Content Include="fonts\fa-brands-400.woff" />
-    <Content Include="fonts\fa-brands-400.woff2" />
-    <Content Include="fonts\fa-brands-400d41d.eot" />
-    <Content Include="fonts\fa-regular-400.eot" />
-    <Content Include="fonts\fa-regular-400.ttf" />
-    <Content Include="fonts\fa-regular-400.woff" />
-    <Content Include="fonts\fa-regular-400.woff2" />
-    <Content Include="fonts\fa-regular-400d41d.eot" />
-    <Content Include="fonts\fa-solid-900.eot" />
-    <Content Include="fonts\fa-solid-900.ttf" />
-    <Content Include="fonts\fa-solid-900.woff" />
-    <Content Include="fonts\fa-solid-900.woff2" />
-    <Content Include="fonts\fa-solid-900d41d.eot" />
-    <Content Include="fonts\Flaticon.eot" />
-    <Content Include="fonts\Flaticon.ttf" />
-    <Content Include="fonts\Flaticon.woff" />
-    <Content Include="fonts\Flaticon.woff2" />
-    <Content Include="fonts\Flaticond41d.eot" />
+    <Content Include="assets\fonts\fa-brands-400.eot" />
+    <Content Include="assets\fonts\fa-brands-400.ttf" />
+    <Content Include="assets\fonts\fa-brands-400.woff" />
+    <Content Include="assets\fonts\fa-brands-400.woff2" />
+    <Content Include="assets\fonts\fa-brands-400d41d.eot" />
+    <Content Include="assets\fonts\fa-regular-400.eot" />
+    <Content Include="assets\fonts\fa-regular-400.ttf" />
+    <Content Include="assets\fonts\fa-regular-400.woff" />
+    <Content Include="assets\fonts\fa-regular-400.woff2" />
+    <Content Include="assets\fonts\fa-regular-400d41d.eot" />
+    <Content Include="assets\fonts\fa-solid-900.eot" />
+    <Content Include="assets\fonts\fa-solid-900.ttf" />
+    <Content Include="assets\fonts\fa-solid-900.woff" />
+    <Content Include="assets\fonts\fa-solid-900.woff2" />
+    <Content Include="assets\fonts\fa-solid-900d41d.eot" />
+    <Content Include="assets\fonts\Flaticon.eot" />
+    <Content Include="assets\fonts\Flaticon.ttf" />
+    <Content Include="assets\fonts\Flaticon.woff" />
+    <Content Include="assets\fonts\Flaticon.woff2" />
+    <Content Include="assets\fonts\Flaticond41d.eot" />
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -420,19 +466,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\LayoutUser.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\DangKy\Index.cshtml" />
     <Content Include="Views\Home\LienHe.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
-    <Content Include="Views\Menu\MenuArrivals.cshtml" />
     <Content Include="Views\Product\Partial_ItemByCateId.cshtml" />
     <Content Include="Views\Product\MenuThuongHieu.cshtml" />
     <Content Include="Views\Product\MenuLoai.cshtml" />
     <Content Include="Views\Product\Product_Loai.cshtml" />
     <Content Include="Views\Product\Product_ThuongHieu.cshtml" />
-    <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Partial_Item_Cart.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOut.cshtml" />
@@ -441,6 +482,16 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\ShoppingCart\CheckOutSuccess.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Product\ItemBasedRecommendations.cshtml" />
+    <Content Include="Views\Product\LichSuDonHang.cshtml" />
+    <Content Include="Views\Product\ChiTietDonHang.cshtml" />
+    <Content Include="Views\Product\Partial_RecommendedProducts.cshtml" />
+    <Content Include="Views\Product\_NoRecommendations.cshtml" />
+    <Content Include="Views\Product\_NoOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -14,11 +14,11 @@ namespace SHOP_DCAN
     
     public partial class QL_NguoiDungNhomNguoiDung
     {
-        public string TenDangNhap { get; set; }
+        public int MaNV { get; set; }
         public string MaNhomNguoiDung { get; set; }
         public string GhiChu { get; set; }
     
-        public virtual QL_NguoiDung QL_NguoiDung { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
         public virtual QL_NhomNguoiDung QL_NhomNguoiDung { get; set; }
     }
 }

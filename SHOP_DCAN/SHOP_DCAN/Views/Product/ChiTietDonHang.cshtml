@@ -1,0 +1,130 @@
+﻿@model SHOP_DCAN.HoaDon
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+
+
+@{
+    ViewBag.Title = "Chi Tiết Đơn Hàng";
+}
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .order-detail-header {
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+        .order-detail-header h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+    .order-info {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+        .order-info h4 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .order-info p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+    .btn-back {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 20px;
+    }
+
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<div class="container">
+    <div class="order-detail-header">
+        <h2>Chi Tiết Đơn Hàng</h2>
+    </div>
+
+    <div class="order-info">
+        <h4>Thông Tin Đơn Hàng</h4>
+        <p><strong>Mã Đơn Hàng:</strong> @Model.MaHD</p>
+        <p><strong>Ngày Đặt:</strong> @Model.NgayDat</p>
+        <p><strong>Tổng Tiền:</strong> @Model.TongTien VND</p>
+        <p><strong>Tình Trạng:</strong> @Model.TinhTrang</p>
+    </div>
+
+    <div class="order-info">
+        <h4>Chi Tiết Các Sản Phẩm</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tên Sản Phẩm</th>
+                    <th>Số Lượng</th>
+                    <th>Đơn Giá</th>
+                    <th>Tổng Giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ChiTietHoaDons)
+                {
+                    <tr>
+                        <td>@item.SanPham.TenSP</td>
+                        <td>@item.SoLuong</td>
+                        <td>@item.DonGia VND</td>
+                        <td>@item.SoLuong * @item.DonGia VND</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a href="@Url.Action("LichSuDonHang", "Product")" class="btn-back">Quay Lại</a>
+</div>
+
+

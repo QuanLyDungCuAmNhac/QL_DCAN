@@ -3,16 +3,16 @@
 {
 
     <div class="shop-widget">
-        <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thể loại</font></font></h3>
+        <h3 class="shop-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family:'Segoe UI'">Thể loại</font></font></h3>
         <ul class="shop-link">
             @foreach (var item in Model)
             {
                 if (ViewBag.CateId == item.MaLoai)
                 {
-        <li><a href="@Url.Action("Product_Loai", "Product", new { id = item.MaLoai })"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TenLoai</font></font></a></li> }
+        <li><a href="@Url.Action("Product_Loai", "Product", new { id = item.MaLoai })"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family: 'Segoe UI'">@item.TenLoai</font></font></a></li> }
                             else
                             {
-                                <li><a href="@Url.Action("Product_Loai", "Product", new { id = item.MaLoai })"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TenLoai</font></font></a></li>
+                                <li><a href="@Url.Action("Product_Loai", "Product", new { id = item.MaLoai })"><i class="far fa-square"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family: 'Segoe UI'">@item.TenLoai</font></font></a></li>
 }
 
                         }

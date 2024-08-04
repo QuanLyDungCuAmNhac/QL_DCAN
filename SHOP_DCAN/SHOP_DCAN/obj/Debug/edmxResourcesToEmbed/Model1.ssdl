@@ -17,14 +17,6 @@
     <Property Name="MaManHinh" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="TenManHinh" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="HinhAnh">
-    <Key>
-      <PropertyRef Name="MaHinh" />
-    </Key>
-    <Property Name="MaHinh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenHinh" Type="nchar" MaxLength="200" />
-    <Property Name="MaSP" Type="int" />
-  </EntityType>
   <EntityType Name="HoaDon">
     <Key>
       <PropertyRef Name="MaHD" />
@@ -48,7 +40,7 @@
     <Property Name="SDT" Type="nchar" MaxLength="11" />
     <Property Name="Email" Type="nchar" MaxLength="100" />
     <Property Name="Username" Type="char" MaxLength="100" />
-    <Property Name="Password" Type="char" MaxLength="200" />
+    <Property Name="Password" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="KhoHang">
     <Key>
@@ -65,7 +57,7 @@
     <Key>
       <PropertyRef Name="MaKM" />
     </Key>
-    <Property Name="MaKM" Type="int" Nullable="false" />
+    <Property Name="MaKM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenKM" Type="nvarchar" MaxLength="50" />
     <Property Name="GiamGia" Type="float" />
     <Property Name="NgayBD" Type="date" />
@@ -93,24 +85,18 @@
     </Key>
     <Property Name="MaNV" Type="int" Nullable="false" />
     <Property Name="TenNV" Type="nvarchar" MaxLength="50" />
-    <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
     <Property Name="SDT" Type="char" MaxLength="11" />
-  </EntityType>
-  <EntityType Name="QL_NguoiDung">
-    <Key>
-      <PropertyRef Name="TenDangNhap" />
-    </Key>
-    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="MatKhau" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="Username" Type="char" MaxLength="100" />
+    <Property Name="Password" Type="char" MaxLength="200" />
     <Property Name="HoatDong" Type="bit" />
-    <Property Name="MaNV" Type="int" />
   </EntityType>
   <EntityType Name="QL_NguoiDungNhomNguoiDung">
     <Key>
-      <PropertyRef Name="TenDangNhap" />
+      <PropertyRef Name="MaNV" />
       <PropertyRef Name="MaNhomNguoiDung" />
     </Key>
-    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaNV" Type="int" Nullable="false" />
     <Property Name="MaNhomNguoiDung" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
   </EntityType>
@@ -140,7 +126,7 @@
     <Property Name="MaLoai" Type="int" />
     <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
     <Property Name="SoLuong" Type="int" />
-    <Property Name="MoTa" Type="nvarchar" MaxLength="100" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
     <Property Name="HinhAnh" Type="nchar" MaxLength="200" />
     <Property Name="TrangThai" Type="int" />
     <Property Name="MaTH" Type="int" />
@@ -172,18 +158,6 @@
         <PropertyRef Name="MaSP" />
       </Principal>
       <Dependent Role="ChiTietHoaDon">
-        <PropertyRef Name="MaSP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HinhAnh_SanPham">
-    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
-    <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SanPham">
-        <PropertyRef Name="MaSP" />
-      </Principal>
-      <Dependent Role="HinhAnh">
         <PropertyRef Name="MaSP" />
       </Dependent>
     </ReferentialConstraint>
@@ -248,27 +222,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_QL_NguoiDung_NhanVien">
-    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-    <End Role="QL_NguoiDung" Type="Self.QL_NguoiDung" Multiplicity="*" />
+  <Association Name="FK_QL_NguoiDungNhomNguoiDung_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="QL_NguoiDungNhomNguoiDung" Type="Self.QL_NguoiDungNhomNguoiDung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="NhanVien">
         <PropertyRef Name="MaNV" />
       </Principal>
-      <Dependent Role="QL_NguoiDung">
-        <PropertyRef Name="MaNV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung">
-    <End Role="QL_NguoiDung" Type="Self.QL_NguoiDung" Multiplicity="1" />
-    <End Role="QL_NguoiDungNhomNguoiDung" Type="Self.QL_NguoiDungNhomNguoiDung" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="QL_NguoiDung">
-        <PropertyRef Name="TenDangNhap" />
-      </Principal>
       <Dependent Role="QL_NguoiDungNhomNguoiDung">
-        <PropertyRef Name="TenDangNhap" />
+        <PropertyRef Name="MaNV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -335,7 +297,6 @@
   <EntityContainer Name="QL_DCAN2ModelStoreContainer">
     <EntitySet Name="ChiTietHoaDon" EntityType="Self.ChiTietHoaDon" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DM_ManHinh" EntityType="Self.DM_ManHinh" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="HinhAnh" EntityType="Self.HinhAnh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KhoHang" EntityType="Self.KhoHang" Schema="dbo" store:Type="Tables" />
@@ -343,7 +304,6 @@
     <EntitySet Name="LoaiSP" EntityType="Self.LoaiSP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhaCungCap" EntityType="Self.NhaCungCap" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="QL_NguoiDung" EntityType="Self.QL_NguoiDung" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QL_NguoiDungNhomNguoiDung" EntityType="Self.QL_NguoiDungNhomNguoiDung" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QL_NhomNguoiDung" EntityType="Self.QL_NhomNguoiDung" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QL_PhanQuyen" EntityType="Self.QL_PhanQuyen" Schema="dbo" store:Type="Tables" />
@@ -356,10 +316,6 @@
     <AssociationSet Name="FK_ChiTietHoaDon_SanPham" Association="Self.FK_ChiTietHoaDon_SanPham">
       <End Role="SanPham" EntitySet="SanPham" />
       <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDon" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HinhAnh_SanPham" Association="Self.FK_HinhAnh_SanPham">
-      <End Role="SanPham" EntitySet="SanPham" />
-      <End Role="HinhAnh" EntitySet="HinhAnh" />
     </AssociationSet>
     <AssociationSet Name="FK_HoaDon_KhachHang" Association="Self.FK_HoaDon_KhachHang">
       <End Role="KhachHang" EntitySet="KhachHang" />
@@ -381,12 +337,8 @@
       <End Role="SanPham" EntitySet="SanPham" />
       <End Role="KhuyenMai" EntitySet="KhuyenMai" />
     </AssociationSet>
-    <AssociationSet Name="FK_QL_NguoiDung_NhanVien" Association="Self.FK_QL_NguoiDung_NhanVien">
+    <AssociationSet Name="FK_QL_NguoiDungNhomNguoiDung_NhanVien" Association="Self.FK_QL_NguoiDungNhomNguoiDung_NhanVien">
       <End Role="NhanVien" EntitySet="NhanVien" />
-      <End Role="QL_NguoiDung" EntitySet="QL_NguoiDung" />
-    </AssociationSet>
-    <AssociationSet Name="FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung" Association="Self.FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung">
-      <End Role="QL_NguoiDung" EntitySet="QL_NguoiDung" />
       <End Role="QL_NguoiDungNhomNguoiDung" EntitySet="QL_NguoiDungNhomNguoiDung" />
     </AssociationSet>
     <AssociationSet Name="FK_QL_NguoiDungNhomNguoiDung_QL_NhomNguoiDung" Association="Self.FK_QL_NguoiDungNhomNguoiDung_QL_NhomNguoiDung">

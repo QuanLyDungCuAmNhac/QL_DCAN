@@ -18,7 +18,6 @@ namespace SHOP_DCAN
         public SanPham()
         {
             this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            this.HinhAnhs = new HashSet<HinhAnh>();
             this.KhoHangs = new HashSet<KhoHang>();
             this.KhuyenMais = new HashSet<KhuyenMai>();
         }
@@ -35,8 +34,6 @@ namespace SHOP_DCAN
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HinhAnh> HinhAnhs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhoHang> KhoHangs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

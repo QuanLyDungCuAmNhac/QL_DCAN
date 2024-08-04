@@ -20,15 +20,6 @@
     <Property Name="TenManHinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="QL_PhanQuyen" Relationship="Self.FK_QL_PhanQuyen_DM_ManHinh" FromRole="DM_ManHinh" ToRole="QL_PhanQuyen" />
   </EntityType>
-  <EntityType Name="HinhAnh">
-    <Key>
-      <PropertyRef Name="MaHinh" />
-    </Key>
-    <Property Name="MaHinh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenHinh" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
-    <Property Name="MaSP" Type="Int32" />
-    <NavigationProperty Name="SanPham" Relationship="Self.FK_HinhAnh_SanPham" FromRole="HinhAnh" ToRole="SanPham" />
-  </EntityType>
   <EntityType Name="HoaDon">
     <Key>
       <PropertyRef Name="MaHD" />
@@ -55,7 +46,7 @@
     <Property Name="SDT" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
     <Property Name="Username" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="200" FixedLength="true" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_KhachHang" FromRole="KhachHang" ToRole="HoaDon" />
   </EntityType>
   <EntityType Name="KhoHang">
@@ -75,7 +66,7 @@
     <Key>
       <PropertyRef Name="MaKM" />
     </Key>
-    <Property Name="MaKM" Type="Int32" Nullable="false" />
+    <Property Name="MaKM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenKM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="GiamGia" Type="Double" />
     <Property Name="NgayBD" Type="DateTime" Precision="0" />
@@ -106,31 +97,23 @@
     </Key>
     <Property Name="MaNV" Type="Int32" Nullable="false" />
     <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
-    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_NhanVien" FromRole="NhanVien" ToRole="HoaDon" />
-    <NavigationProperty Name="QL_NguoiDung" Relationship="Self.FK_QL_NguoiDung_NhanVien" FromRole="NhanVien" ToRole="QL_NguoiDung" />
-  </EntityType>
-  <EntityType Name="QL_NguoiDung">
-    <Key>
-      <PropertyRef Name="TenDangNhap" />
-    </Key>
-    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="true" Unicode="false" />
     <Property Name="HoatDong" Type="Boolean" />
-    <Property Name="MaNV" Type="Int32" />
-    <NavigationProperty Name="NhanVien" Relationship="Self.FK_QL_NguoiDung_NhanVien" FromRole="QL_NguoiDung" ToRole="NhanVien" />
-    <NavigationProperty Name="QL_NguoiDungNhomNguoiDung" Relationship="Self.FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung" FromRole="QL_NguoiDung" ToRole="QL_NguoiDungNhomNguoiDung" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_NhanVien" FromRole="NhanVien" ToRole="HoaDon" />
+    <NavigationProperty Name="QL_NguoiDungNhomNguoiDung" Relationship="Self.FK_QL_NguoiDungNhomNguoiDung_NhanVien" FromRole="NhanVien" ToRole="QL_NguoiDungNhomNguoiDung" />
   </EntityType>
   <EntityType Name="QL_NguoiDungNhomNguoiDung">
     <Key>
-      <PropertyRef Name="TenDangNhap" />
+      <PropertyRef Name="MaNV" />
       <PropertyRef Name="MaNhomNguoiDung" />
     </Key>
-    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
     <Property Name="MaNhomNguoiDung" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="QL_NguoiDung" Relationship="Self.FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung" FromRole="QL_NguoiDungNhomNguoiDung" ToRole="QL_NguoiDung" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_QL_NguoiDungNhomNguoiDung_NhanVien" FromRole="QL_NguoiDungNhomNguoiDung" ToRole="NhanVien" />
     <NavigationProperty Name="QL_NhomNguoiDung" Relationship="Self.FK_QL_NguoiDungNhomNguoiDung_QL_NhomNguoiDung" FromRole="QL_NguoiDungNhomNguoiDung" ToRole="QL_NhomNguoiDung" />
   </EntityType>
   <EntityType Name="QL_NhomNguoiDung">
@@ -163,12 +146,11 @@
     <Property Name="MaLoai" Type="Int32" />
     <Property Name="DonGia" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="SoLuong" Type="Int32" />
-    <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="HinhAnh" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
     <Property Name="TrangThai" Type="Int32" />
     <Property Name="MaTH" Type="Int32" />
     <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_ChiTietHoaDon_SanPham" FromRole="SanPham" ToRole="ChiTietHoaDon" />
-    <NavigationProperty Name="HinhAnhs" Relationship="Self.FK_HinhAnh_SanPham" FromRole="SanPham" ToRole="HinhAnh" />
     <NavigationProperty Name="KhoHangs" Relationship="Self.FK_KhoHang_SanPham" FromRole="SanPham" ToRole="KhoHang" />
     <NavigationProperty Name="KhuyenMais" Relationship="Self.FK_KhuyenMai_SanPham" FromRole="SanPham" ToRole="KhuyenMai" />
     <NavigationProperty Name="LoaiSP" Relationship="Self.FK_SanPham_LoaiSP" FromRole="SanPham" ToRole="LoaiSP" />
@@ -215,18 +197,6 @@
       </Principal>
       <Dependent Role="QL_PhanQuyen">
         <PropertyRef Name="MaManHinh" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_HinhAnh_SanPham">
-    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
-    <End Role="HinhAnh" Type="Self.HinhAnh" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SanPham">
-        <PropertyRef Name="MaSP" />
-      </Principal>
-      <Dependent Role="HinhAnh">
-        <PropertyRef Name="MaSP" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -302,27 +272,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_QL_NguoiDung_NhanVien">
-    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-    <End Role="QL_NguoiDung" Type="Self.QL_NguoiDung" Multiplicity="*" />
+  <Association Name="FK_QL_NguoiDungNhomNguoiDung_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="QL_NguoiDungNhomNguoiDung" Type="Self.QL_NguoiDungNhomNguoiDung" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="NhanVien">
         <PropertyRef Name="MaNV" />
       </Principal>
-      <Dependent Role="QL_NguoiDung">
-        <PropertyRef Name="MaNV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung">
-    <End Role="QL_NguoiDung" Type="Self.QL_NguoiDung" Multiplicity="1" />
-    <End Role="QL_NguoiDungNhomNguoiDung" Type="Self.QL_NguoiDungNhomNguoiDung" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="QL_NguoiDung">
-        <PropertyRef Name="TenDangNhap" />
-      </Principal>
       <Dependent Role="QL_NguoiDungNhomNguoiDung">
-        <PropertyRef Name="TenDangNhap" />
+        <PropertyRef Name="MaNV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -365,7 +323,6 @@
   <EntityContainer Name="QL_DCAN2Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChiTietHoaDons" EntityType="Self.ChiTietHoaDon" />
     <EntitySet Name="DM_ManHinh" EntityType="Self.DM_ManHinh" />
-    <EntitySet Name="HinhAnhs" EntityType="Self.HinhAnh" />
     <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
     <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
     <EntitySet Name="KhoHangs" EntityType="Self.KhoHang" />
@@ -373,7 +330,6 @@
     <EntitySet Name="LoaiSPs" EntityType="Self.LoaiSP" />
     <EntitySet Name="NhaCungCaps" EntityType="Self.NhaCungCap" />
     <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
-    <EntitySet Name="QL_NguoiDung" EntityType="Self.QL_NguoiDung" />
     <EntitySet Name="QL_NguoiDungNhomNguoiDung" EntityType="Self.QL_NguoiDungNhomNguoiDung" />
     <EntitySet Name="QL_NhomNguoiDung" EntityType="Self.QL_NhomNguoiDung" />
     <EntitySet Name="QL_PhanQuyen" EntityType="Self.QL_PhanQuyen" />
@@ -390,10 +346,6 @@
     <AssociationSet Name="FK_QL_PhanQuyen_DM_ManHinh" Association="Self.FK_QL_PhanQuyen_DM_ManHinh">
       <End Role="DM_ManHinh" EntitySet="DM_ManHinh" />
       <End Role="QL_PhanQuyen" EntitySet="QL_PhanQuyen" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HinhAnh_SanPham" Association="Self.FK_HinhAnh_SanPham">
-      <End Role="SanPham" EntitySet="SanPhams" />
-      <End Role="HinhAnh" EntitySet="HinhAnhs" />
     </AssociationSet>
     <AssociationSet Name="FK_HoaDon_KhachHang" Association="Self.FK_HoaDon_KhachHang">
       <End Role="KhachHang" EntitySet="KhachHangs" />
@@ -419,12 +371,8 @@
       <End Role="LoaiSP" EntitySet="LoaiSPs" />
       <End Role="SanPham" EntitySet="SanPhams" />
     </AssociationSet>
-    <AssociationSet Name="FK_QL_NguoiDung_NhanVien" Association="Self.FK_QL_NguoiDung_NhanVien">
+    <AssociationSet Name="FK_QL_NguoiDungNhomNguoiDung_NhanVien" Association="Self.FK_QL_NguoiDungNhomNguoiDung_NhanVien">
       <End Role="NhanVien" EntitySet="NhanViens" />
-      <End Role="QL_NguoiDung" EntitySet="QL_NguoiDung" />
-    </AssociationSet>
-    <AssociationSet Name="FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung" Association="Self.FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung">
-      <End Role="QL_NguoiDung" EntitySet="QL_NguoiDung" />
       <End Role="QL_NguoiDungNhomNguoiDung" EntitySet="QL_NguoiDungNhomNguoiDung" />
     </AssociationSet>
     <AssociationSet Name="FK_QL_NguoiDungNhomNguoiDung_QL_NhomNguoiDung" Association="Self.FK_QL_NguoiDungNhomNguoiDung_QL_NhomNguoiDung">

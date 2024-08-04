@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SHOP_DCAN.SanPham>
+
+<section class="product-area box-90 pt-70 pb-40">
+    <div class="container-fluid">
+        <h1 style="font-family:'Segoe UI'">GỢI Ý SẢN PHẨM</h1>
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-3">
+                    <div class="product-wrapper mb-50">
+                        <div class="product-img mb-25">
+                            <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">
+                                <img src="https://res.cloudinary.com/deuokbfws/image/upload/v1722077825/@item.HinhAnh" alt="">
+                                @* <img class="secondary-img" src="img/product/pro16.jpg" alt="">*@
+                            </a>
+                            <div class="product-action text-center">
+
+                                <a href="@Url.Action("Index","ShoppingCart")" data-id="@item.MaSP" class="btnAddToCart">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+
+
+                                <a href="#" title="Xem lướt qua">
+                                    <i class="flaticon-eye"></i>
+                                </a>
+                                <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
+                                    <i class="flaticon-compare"></i>
+                                </a>
+                            </div>
+                            <div class="sale-tag">
+                                <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
+                            </div>
+                        </div>
+                        <div class="product-content">
+
+                            <h4>
+                                <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TenSP</font></font></a>
+                            </h4>
+                            <div class="product-meta">
+                                <div class="pro-price">
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Common.FormatNumber(@item.DonGia, 0) VND</font></font></span>
+                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                </div>
+                            </div>
+                            <div class="product-wishlist">
+                                <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+

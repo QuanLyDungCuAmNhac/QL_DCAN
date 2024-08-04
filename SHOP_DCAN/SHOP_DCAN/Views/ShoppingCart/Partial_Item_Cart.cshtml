@@ -14,16 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            @*<tr>
-                    <td class="product-thumbnail"><a href="#"><img src="img/product/pro1.jpg" alt=""></a></td>
-                    <td class="product-name"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Bakix</font></font></a></td>
-                    <td class="product-price"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130,00 đô la</font></font></span></td>
-                    <td class="product-quantity">
-                        <div class="cart-plus-minus"><input type="text" value="1"><div class="dec qtybutton"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></div><div class="inc qtybutton"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">+</font></font></div></div>
-                    </td>
-                    <td class="product-subtotal"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130,00 đô la</font></font></span></td>
-                    <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                </tr>*@
+     
             @if (Model != null && Model.Any())
             {
                 var i = 0;
@@ -33,7 +24,7 @@
                     tongtien += item.TotalPrice;
                     <tr class="text-center" id="trow_@item.ProductId">
                         <td>@(i+1)</td>
-                        <td class="product-thumbnail"><a href="#"><img src="~/img/img_product/@item.ProductImg" width="60" alt=""></a></td>
+                        <td class="product-thumbnail"><a href="#"><img src="https://res.cloudinary.com/deuokbfws/image/upload/v1722077825/@item.ProductImg" width="60" alt=""></a></td>
                         <td class="product-name"><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item.ProductName</font></font></a></td>
                         <td class="product-price"><span class="amount"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Common.FormatNumber(item.Price, 0)</font></font></span></td>
                         <td class="product-quantity"><input type="number" class="form-control" id="Quantity_@item.ProductId" value="@item.Quantity" /></td>

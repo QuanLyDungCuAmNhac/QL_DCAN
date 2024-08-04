@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SHOP_DCAN.SanPham>
+
+<section class="product-area pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="area-title text-center mb-50">
+                    <h2 style="font-family:'Segoe UI'">GỢI Ý SẢN PHẨM</h2>
+                    <p>Browse the huge variety of our products</p>
+                </div>
+            </div>
+        </div>
+        <div class="product-slider-2 owl-carousel">
+
+            @foreach (var item in Model)
+            {
+                <div class="pro-item">
+                    <div class="product-wrapper">
+                        <div class="product-img mb-25">
+                            <a href="product-details.html">
+                                <img src="https://res.cloudinary.com/deuokbfws/image/upload/v1722077825/@item.HinhAnh" alt="">
+                               
+                            </a>
+                            <div class="product-action text-center">
+                                <a href="#" title="Shoppingb Cart">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                                <a href="#" title="Quick View">
+                                    <i class="flaticon-eye"></i>
+                                </a>
+                                <a href="#" data-toggle="tooltip" data-placement="right" title="Compare">
+                                    <i class="flaticon-compare"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="pro-cat mb-10">
+                                <a href="shop.html">decor, </a>
+                                <a href="shop.html">furniture</a>
+                            </div>
+                            <h4>
+                                <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">@item.TenSP</a>
+                            </h4>
+                            <div class="product-meta">
+                                <div class="pro-price">
+                                    <span>@item.DonGia</span>
+                                    <span class="old-price">$230.00 USD</span>
+                                </div>
+                            </div>
+                            <div class="product-wishlist">
+                                <a href="#"><i class="far fa-heart" title="Wishlist"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            </div>
+    </div>
+</section>

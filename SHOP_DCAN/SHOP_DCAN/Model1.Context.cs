@@ -27,7 +27,6 @@ namespace SHOP_DCAN
     
         public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public virtual DbSet<DM_ManHinh> DM_ManHinh { get; set; }
-        public virtual DbSet<HinhAnh> HinhAnhs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<KhoHang> KhoHangs { get; set; }
@@ -35,7 +34,6 @@ namespace SHOP_DCAN
         public virtual DbSet<LoaiSP> LoaiSPs { get; set; }
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<QL_NguoiDung> QL_NguoiDung { get; set; }
         public virtual DbSet<QL_NguoiDungNhomNguoiDung> QL_NguoiDungNhomNguoiDung { get; set; }
         public virtual DbSet<QL_NhomNguoiDung> QL_NhomNguoiDung { get; set; }
         public virtual DbSet<QL_PhanQuyen> QL_PhanQuyen { get; set; }

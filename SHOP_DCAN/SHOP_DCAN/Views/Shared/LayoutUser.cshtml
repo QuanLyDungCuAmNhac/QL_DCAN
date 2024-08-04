@@ -9,21 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="site.html">
-    <link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
     <!-- CSS here -->
-    <link rel="stylesheet" href="~/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/css/animate.min.css">
-    <link rel="stylesheet" href="~/css/magnific-popup.css">
-    <link rel="stylesheet" href="~/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="~/css/flaticon.css">
-    <link rel="stylesheet" href="~/css/meanmenu.css">
-    <link rel="stylesheet" href="~/css/meanmenu.css">
-    <link rel="stylesheet" href="~/css/slick.css">
-    <link rel="stylesheet" href="~/css/default.css">
-    <link rel="stylesheet" href="~/css/style.css">
-    <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="~/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="~/assets/css/slick.css">
+    <link rel="stylesheet" href="~/assets/css/default.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/responsive.css">
 </head>
 <body style="overflow: visible;">
     <!-- preloader -->
@@ -46,7 +46,7 @@
                             <span class="bar3"></span>
                         </div>
                         <div class="logo">
-                            <a href="@Url.Action("Index","Home")"><img src="~/img/logo/logo.png" alt=""></a>
+                            <a href="@Url.Action("Index","Home")"><img src="~/assets/img/logo/logo.png" alt=""></a>
                         </div>
 
                         <div class="category-menu">
@@ -76,17 +76,66 @@
                                     </li>
                                     @if (Session["KH"] == null)
                                     {
+                                        
                                         <li>
                                             <a href="@Url.Action("Login","Account")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng nhập</font></font></a>
                                         </li>
                                     }
                                     else
                                     {
+                                        var userName = "";
+                                        var user = (KhachHang)Session["KH"];
+                                        userName = user.Email; // Hoặc thuộc tính tương ứng
+
                                         <li>
                                             <a href="@Url.Action("Logout","Account")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng xuất</font></font></a>
                                         </li>
-                                        
-                                     }
+                                        <li>
+                                            <span>Xin chào, @userName</span>
+                                        </li>
+
+                                    }
+                                    @*@if (Session["KH"] != null || Session[ViewBag.UserSessionKey] != null)
+        {
+            // Kiểm tra xem người dùng đã đăng nhập thông qua phương thức nào
+            var userName = "";
+
+            if (Session["KH"] != null)
+            {
+                // Lấy tên người dùng từ session thông thường
+                var user = (KhachHang)Session["KH"];
+                userName = user.TenKH; // Hoặc thuộc tính tương ứng
+            }
+            else if (Session[ViewBag.UserSessionKey] != null)
+            {
+                // Lấy tên người dùng từ session Google
+                var userSession = Session[ViewBag.UserSessionKey];
+                userName = userSession.Email; // Hoặc thuộc tính tương ứng
+            }
+
+            <li>
+                <span>Xin chào, @userName</span>
+            </li>
+            <li>
+                <a href="@Url.Action("Logout", "Account")">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Đăng xuất</font>
+                    </font>
+                </a>
+            </li>
+        }
+        else
+        {
+            // Người dùng chưa đăng nhập
+            <li>
+                <a href="@Url.Action("Login", "Account")">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">Đăng nhập</font>
+                    </font>
+                </a>
+            </li>
+        }*@
+
 
                                 </ul>
                             </nav>
@@ -98,10 +147,10 @@
                                 <li class="search-btn">
                                     <a class="search-btn nav-search search-trigger" href="#"><i class="fas fa-search"></i></a>
                                 </li>
-                                <li class="login-btn"><a href="@Url.Action("Login","Account")"><i class="far fa-user"></i></a></li>
+                                <li class="login-btn"><a href="@Url.Action("LichSuDonHang", "Product")"><i class="far fa-user"></i></a></li>
                                 <li class="d-shop-cart">
                                     <a href="@Url.Action("Index","ShoppingCart")"><i class="flaticon-shopping-cart"></i> <span class="cart-count" id="cart-count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0</font></font></span></a>
-
+                                    @**@
                                 </li>
                             </ul>
                         </div>
@@ -125,7 +174,7 @@
                     <div class="col-xl-3 col-lg-5 col-md-6 ">
                         <div class="footer-widget mb-40">
                             <div class="footer-logo">
-                                <a href="@Url.Action("Index","Home")"><img src="~/img/logo/footer-logo.png" alt=""></a>
+                                <a href="@Url.Action("Index","Home")"><img src="~/assets/img/logo/footer-logo.png" alt=""></a>
                             </div>
                             <p>
                                 <font style="vertical-align: inherit;">
@@ -136,7 +185,7 @@
                             </p>
                             <div class="footer-time d-flex mt-30">
                                 <div class="time-icon">
-                                    <img src="~/img/icon/time.png" alt="">
+                                    <img src="~/assets/img/icon/time.png" alt="">
                                 </div>
                                 <div class="time-text">
                                     <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bạn có thắc mắc? Hãy gọi cho chúng tôi 24/7!</font></font></span>
@@ -187,7 +236,7 @@
                     <div class="col-xl-3 col-lg-5 col-md-6">
                         <div class="footer-widget mb-40">
                             <div class="footer-banner">
-                                <a href="shop.html"><img src="~/img/banner/add.jpg" alt=""></a>
+                                <a href="shop.html"><img src="~/assets/img/banner/add.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -234,23 +283,34 @@
     </div> <!-- end fullscreen search -->
     <!-- JS here -->
     @RenderSection("scripts", required: false)
-    <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="~/js/popper.min.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/owl.carousel.min.js"></script>
-    <script src="~/js/isotope.pkgd.min.js"></script>
-    <script src="~/js/one-page-nav-min.js"></script>
-    <script src="~/js/slick.min.js"></script>
-    <script src="~/js/jquery.meanmenu.min.js"></script>
-    <script src="~/js/ajax-form.js"></script>
-    <script src="~/js/wow.min.js"></script>
-    <script src="~/js/jquery.scrollUp.min.js"></script>
-    <script src="~/js/jquery.final-countdown.min.js"></script>
-    <script src="~/js/imagesloaded.pkgd.min.js"></script>
-    <script src="~/js/jquery.magnific-popup.min.js"></script>
-    <script src="~/js/plugins.js"></script>
-    <script src="~/js/main.js"></script>
-    <script src="~/js/jsShopping.js"></script>
+    <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/oversea/index.js"></script>
+    <script>
+        new CozeWebSDK.WebChatClient({
+            config: {
+                bot_id: '7396696434336415761',
+            },
+            componentProps: {
+                title: 'Coze',
+            },
+        });
+    </script>
+    <script src="~/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/isotope.pkgd.min.js"></script>
+    <script src="~/assets/js/one-page-nav-min.js"></script>
+    <script src="~/assets/js/slick.min.js"></script>
+    <script src="~/assets/js/jquery.meanmenu.min.js"></script>
+    <script src="~/assets/js/ajax-form.js"></script>
+    <script src="~/assets/js/wow.min.js"></script>
+    <script src="~/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="~/assets/js/jquery.final-countdown.min.js"></script>
+    <script src="~/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    <script src="~/assets/js/jsShopping.js"></script>
 </body>
 
 </html>

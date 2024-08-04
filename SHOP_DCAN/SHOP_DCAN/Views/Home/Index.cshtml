@@ -14,7 +14,7 @@
                         <div class="row align-items-center fill_height">
                             <div class="col">
                                 <div class="main_slider_content">
-                                    <img src="~/img/img_backgroung.jpg" width="1100" />
+                                    <img src="~/assets/img/img_backgroung.jpg" width="1100" />
                                     @*<h6>Spring / Summer Collection 2017</h6>
                                         <h1>Get up to 30% Off New Arrivals</h1>
                                         <div class="red_button shop_now_button"><a href="#">shop now</a></div>*@
@@ -35,17 +35,17 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="banner mb-30">
-                        <a href="shop.html"><img src="~/img/banner1.jpg" alt=""></a>
+                        <a href="shop.html"><img src="~/assets/img/banner1.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="banner mb-30">
-                        <a href="shop.html"><img src="~/img/banner2.jpg" alt=""></a>
+                        <a href="shop.html"><img src="~/assets/img/banner2.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="banner mb-30">
-                        <a href="shop.html"><img src="~/img/banner3.jpg" alt=""></a>
+                        <a href="shop.html"><img src="~/assets/img/banner3.jpg" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -53,168 +53,60 @@
     </section>
     <!-- banner area end -->
     <!-- product-area start -->
+    @Html.Action("ItemBasedRecommendations", "Product")
     <section class="product-area box-90 pt-70 pb-40">
         <div class="container-fluid">
-            @*@Html.Action("MenuArrivals", "Menu")*@
-            <div class="row">
-
-                @foreach (var item in Model)
-                {
-                    <div class="col-lg-3 col-md-3">
-                        <div class="product-wrapper mb-50">
-                            <div class="product-img mb-25">
-                                <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">
-                                    <img src="~/img/img_product/@item.HinhAnh" alt="">
-                                   @* <img class="secondary-img" src="img/product/pro16.jpg" alt="">*@
-                                </a>
-                                <div class="product-action text-center" >
-                                
-                                    <a href="@Url.Action("Index","ShoppingCart")" data-id="@item.MaSP" class="btnAddToCart">
-                                        <i class="flaticon-shopping-cart"></i>
+            @if (Session["KH"] == null)
+            {
+                <h1 style="font-family:'Segoe UI'">GỢI Ý SẢN PHẨM</h1>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-3">
+                            <div class="product-wrapper mb-50">
+                                <div class="product-img mb-25">
+                                    <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })">
+                                        <img src="https://res.cloudinary.com/deuokbfws/image/upload/v1722077825/@item.HinhAnh" alt="">
+                                        @* <img class="secondary-img" src="img/product/pro16.jpg" alt=""> *@
                                     </a>
-                                   
-                                   
-                                    <a href="#" title="Xem lướt qua">
-                                        <i class="flaticon-eye"></i>
-                                    </a>
-                                    <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
-                                        <i class="flaticon-compare"></i>
-                                    </a>
-                                </div>
-                                <div class="sale-tag">
-                                    <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
-                                    <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
-                                </div>
-                            </div>
-                            <div class="product-content">
-
-                                <h4>
-                                    <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TenSP</font></font></a>
-                                </h4>
-                                <div class="product-meta">
-                                    <div class="pro-price">
-                                        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Common.FormatNumber(@item.DonGia, 0) VND</font></font></span>
-                                        <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                    <div class="product-action text-center">
+                                        <a href="@Url.Action("Index","ShoppingCart")" data-id="@item.MaSP" class="btnAddToCart">
+                                            <i class="flaticon-shopping-cart"></i>
+                                        </a>
+                                        <a href="#" title="Xem lướt qua">
+                                            <i class="flaticon-eye"></i>
+                                        </a>
+                                        <a href="#" data-toggle="tooltip" data-placement="right" title="So sánh">
+                                            <i class="flaticon-compare"></i>
+                                        </a>
+                                    </div>
+                                    <div class="sale-tag">
+                                        <span class="new"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mới</font></font></span>
+                                        <span class="sale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">doanh thu</font></font></span>
                                     </div>
                                 </div>
-                                <div class="product-wishlist">
-                                    <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
+                                <div class="product-content">
+                                    <h4>
+                                        <a href="@Url.Action("ProductDetail", "Product", new { id = item.MaSP })"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TenSP</font></font></a>
+                                    </h4>
+                                    <div class="product-meta">
+                                        <div class="pro-price">
+                                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Common.FormatNumber(@item.DonGia, 0) VND</font></font></span>
+                                            <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
+                                        </div>
+                                    </div>
+                                    <div class="product-wishlist">
+                                        <a href="#"><i class="far fa-heart" title="Danh sách mong muốn"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                }
-
-            </div>
+                    }
+                </div>
+            }
         </div>
     </section>
-    <!-- product-area end -->
-    <!-- top-seller-area start -->
-    @*<section class="top-seller-area box-90">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-5 col-lg-8 col-md-7">
-                    <div class="area-title mb-50">
-                        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bán chạy nhất</font></font></h2>
-                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Duyệt qua nhiều loại sản phẩm của chúng tôi</font></font></p>
-                    </div>
-                </div>
-                <div class="col-xl-7 col-lg-4 col-md-5">
-                    <div class="vue-btn text-left text-md-right mb-50">
-                        <a href="shop.html" class="btn theme-btn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bộ sưu tập</font></font></a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-5 col-lg-5">
-                    <div class="top-seller mb-50">
-                        <img src="img/banner/top-seller/banner1.jpg" alt="">
-                        <div class="seller-box text-center">
-                            <div class="top-seller-content text-left">
-                                <h2><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Trang trí nhà tối giản</font></font></a></h2>
-                                <div class="pro-price mb-25">
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                    <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                                </div>
-                                <div class="top-seller-btn">
-                                    <a href="shop.html" class="btn theme-btn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mua ngay</font></font></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-7 col-lg-7">
-                    <div class="top-seller text-right mb-50">
-                        <img src="img/banner/top-seller/banner2.jpg" alt="">
-                        <div class="sellet-2-content">
-                            <h2><a href="shop.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nội thất Xcross Comoer</font></font></a></h2>
-                            <div class="pro-price mb-25">
-                                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$119.00 USD</font></font></span>
-                                <span class="old-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$230.00 USD</font></font></span>
-                            </div>
-                            <div class="top-seller-btn">
-                                <a href="shop.html" class="btn theme-btn-2 mr-20"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">xem chi tiết</font></font></a>
-                                <a href="#" class="shop-btn"><i class="flaticon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>*@
-    <!-- top-seller-area end -->
- 
-    <!-- upcoming-product-area start -->
-    <!--<section class="upcoming-product-area pos-relative box-90 pt-120 pb-120" data-background="img/bg/bg.jpg" style="background-image: url(&quot;img/bg/bg.jpg&quot;);">
-        
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-6 offset-xl-6">
-                    <div class="upcoming-product">
-                        <div class="upc-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">500,00 đô la</font></font></div>
-                        <h1><a href="product-details.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lodge gắn tường</font></font></a></h1>
-                        <ul class="upc-pro-info fix">
-                            <li class="d-flex">
-                                <i class="flaticon-layers"></i>
-                                <div class="upc-info">
-                                    <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nguồn gốc từ</font></font></h4>
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thụy Điển</font></font></span>
-                                </div>
-                            </li>
-                            <li class="d-flex">
-                                <i class="flaticon-layers"></i>
-                                <div class="upc-info">
-                                    <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vật liệu</font></font></h4>
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhôm</font></font></span>
-                                </div>
-                            </li>
-                            <li class="d-flex">
-                                <i class="flaticon-layers"></i>
-                                <div class="upc-info">
-                                    <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhà thiết kế</font></font></h4>
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mã Sayyam</font></font></span>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">
-                                    Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó. Đừng tức giận với nỗi đau trong lời quở trách, trong niềm vui nó muốn trở thành sợi tóc của nỗi đau và không ai trốn tránh.
-                                </font>
-                            </font>
-                        </p>
-                        <div class="upc-btn">
-                            <a class="btn theme-btn" href="shop.html" data-animation="fadeInLeft" data-delay=".7s"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mua sắm ngay</font></font></a>
-                            <a class="btn white-btn" href="shop.html" data-animation="fadeInRight" data-delay=".9s"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chi tiết</font></font></a>
-                        </div>
-                        <div class="event-timer">
-                            <div class="mt-40" data-countdown="2019/04/01"><span class="cdown days"><span class="time-count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0</font></font></span> <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ngày</font></font></p></span> <span class="cdown hour"><span class="time-count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0</font></font></span> <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giờ</font></font></p></span> <span class="cdown minutes"><span class="time-count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">00</font></font></span> <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tối thiểu</font></font></p></span> <span class="cdown second"> <span><span class="time-count"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">00</font></font></span> <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giây</font></font></p></span></span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-    @*</section>*@
+
     <!-- upcoming-product-area end -->
     <!-- latest-blog-area start -->
     <section class="latest-blog-area pt-95 pb-60 box-90">
@@ -222,8 +114,8 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="area-title text-center mb-50">
-                        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nguồn cấp tin tức</font></font></h2>
-                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kiểm tra nó mỗi lần cập nhật</font></font></p>
+                        <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Nguồn cấp tin tức</font></font></h2>
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Kiểm tra nó mỗi lần cập nhật</font></font></p>
                     </div>
                 </div>
             </div>
@@ -231,7 +123,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="latest-news mb-40">
                         <div class="news__thumb mb-25">
-                            <img src="img/blog/latest/lb1.jpg" alt="">
+                            <img src="~/assets/img/new_3.jpg" alt="">
                         </div>
                         <div class="news__caption white-bg">
                             <div class="news-meta mb-15">
@@ -242,16 +134,16 @@
                             <h2>
                                 <a href="blog-details.html">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Cảm hứng đang được xây dựng Kinh doanh &amp; Thời trang 2019. Trong tình huống này, chúng ta làm điều đó..
+                                        <font style="vertical-align: inherit; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                                            ĐƯA BẠN ĐẾN GẦN HƠN VỚI RUNG CẢM ÂM NHẠC CỦA MÌNH
                                         </font>
                                     </font>
                                 </a>
                             </h2>
                             <p>
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Trên thực tế, đi đến từng chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào ngoại trừ việc thu được lợi ích nào đó từ nó.
+                                    <font style="vertical-align: inherit; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                                        Là nhà bán lẻ nhạc cụ và âm nhạc được tín nhiệm nhất châu Á, chúng tôi là ngôi nhà chung của nhiều thương hiệu và vô số nhãn hiệu nổi tiếng. Cả online và offline, đội ngũ chuyên viên của chúng tôi giàu kỹ năng và kinh nghiệm để hỗ trợ người yêu nhạc theo cách ý nghĩa nhất.
                                     </font>
                                 </font>
                             </p>
@@ -261,7 +153,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="latest-news mb-40">
                         <div class="news__thumb mb-25">
-                            <img src="img/blog/latest/lb2.jpg" alt="">
+                            <img src="~/assets/img/new_2.jpg" alt="">
                         </div>
                         <div class="news__caption white-bg">
                             <div class="news-meta mb-15">
@@ -272,16 +164,16 @@
                             <h2>
                                 <a href="blog-details.html">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Cảm hứng đang được xây dựng Kinh doanh &amp; Thời trang 2019. Trong tình huống này, chúng ta làm điều đó..
+                                        <font style="vertical-align: inherit; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                                            NHÀ BÁN LẺ NHẠC CỤ VÀ ÂM NHẠC ĐƯỢC TÍN NHIỆM NHẤT CHÂU Á
                                         </font>
                                     </font>
                                 </a>
                             </h2>
                             <p>
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Trên thực tế, đi đến từng chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào ngoại trừ việc thu được lợi ích nào đó từ nó.
+                                    <font style="vertical-align: inherit; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                                        Được sáng lập vào năm 1946 và có trụ sở tại Singapore, ngày nay Swee Lee là nhà bán lẻ, nhà phân phối nhạc cụ đa thương hiệu và phong cách sống hàng đầu châu Á.
                                     </font>
                                 </font>
                             </p>
@@ -291,7 +183,7 @@
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="latest-news mb-40">
                         <div class="news__thumb mb-25">
-                            <img src="img/blog/latest/lb3.jpg" alt="">
+                            <img src="~/assets/img/new_1.jpg" alt="" height="250">
                         </div>
                         <div class="news__caption white-bg">
                             <div class="news-meta mb-15">
@@ -302,16 +194,16 @@
                             <h2>
                                 <a href="blog-details.html">
                                     <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Cảm hứng đang được xây dựng Kinh doanh &amp; Thời trang 2019. Trong tình huống này, chúng ta làm điều đó..
+                                        <font style="vertical-align: inherit; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                                            ÂM NHẠC NÊN MANG ĐẾN CẢM GIÁC THOẢI MÁI NHƯ Ở NHÀ
                                         </font>
                                     </font>
                                 </a>
                             </h2>
                             <p>
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Trên thực tế, đi đến từng chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào ngoại trừ việc thu được lợi ích nào đó từ nó.
+                                    <font style="vertical-align: inherit; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                                        Tại Swee Lee, chúng tôi tôn vinh mọi phong cách, mọi kỹ năng trong không gian đặc trưng, được thiết kế để nuôi dưỡng nơi người chơi cảm giác thân thuộc và gắn bó với âm nhạc.
                                     </font>
                                 </font>
                             </p>

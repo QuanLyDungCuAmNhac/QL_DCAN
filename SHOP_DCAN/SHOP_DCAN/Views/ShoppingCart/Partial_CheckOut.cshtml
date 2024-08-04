@@ -1,11 +1,6 @@
 ﻿@model SHOP_DCAN.Models.CheckoutView
 
 <div class="form-group">
-    @Html.LabelFor(model => model.MaKH, "Mã Khách Hàng")
-    @Html.TextBoxFor(model => model.MaKH, new { @class = "form-control", @readonly = "readonly" })
-</div>
-
-<div class="form-group">
     @Html.LabelFor(model => model.TenKH, "Tên Khách Hàng")
     @Html.TextBoxFor(model => model.TenKH, new { @class = "form-control", @readonly = "readonly" })
 </div>
@@ -21,7 +16,7 @@
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.DiaChiGiaoHang,"Số nhà")
+    @Html.LabelFor(model => model.DiaChiGiaoHang, "Số nhà")
     @Html.TextBoxFor(model => model.DiaChiGiaoHang, new { @class = "form-control" })
 </div>
 <div class="form-group">
@@ -45,17 +40,17 @@
     </select>
 </div>
 <div class="form-group">
-    @Html.LabelFor(model => model.GhiChu,"Ghi chú")
+    @Html.LabelFor(model => model.GhiChu, "Ghi chú")
     @Html.TextBoxFor(model => model.GhiChu, new { @class = "form-control" })
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.HinhThucThanhToan,"Hình thức thanh toán")
+    @Html.LabelFor(model => model.HinhThucThanhToan, "Hình thức thanh toán")
     @Html.DropDownListFor(model => model.HinhThucThanhToan, new SelectList(new[]
     {
-        new { Value = "1", Text = "COD" },
-        new { Value = "2", Text = "Chuyển khoản" }
-    }, "Value", "Text"), new { @class = "form-control" })
+        new { Value = "COD", Text = "COD" },
+        new { Value = "Chuyển khoản", Text = "Chuyển khoản" }
+    }, "Value", "Text"), new { @class = "form-control", @id = "paymentMethod" })
 </div>
 
 

@@ -4,35 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ad1128e0b9d4482a3e8a56b7cc3a5b6" Name="Diagram1">
-        <EntityTypeShape EntityType="QL_DCAN2Model.ChiTietHoaDon" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.DM_ManHinh" Width="1.5" PointX="8.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.HinhAnh" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.HoaDon" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.KhachHang" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.KhoHang" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.KhuyenMai" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.LoaiSP" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.NhaCungCap" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.NhanVien" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.QL_NguoiDung" Width="1.5" PointX="8.75" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.QL_NguoiDungNhomNguoiDung" Width="1.5" PointX="11" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.QL_NhomNguoiDung" Width="1.5" PointX="8.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.QL_PhanQuyen" Width="1.5" PointX="11" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.SanPham" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QL_DCAN2Model.ThuongHieu" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+      <Diagram DiagramId="0a26d1f587fd40f0bd38ece67aedfcee" Name="Diagram1">
+        <EntityTypeShape EntityType="QL_DCAN2Model.ChiTietHoaDon" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.DM_ManHinh" Width="1.5" PointX="7.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.HoaDon" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.KhachHang" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.KhoHang" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.KhuyenMai" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.LoaiSP" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.NhaCungCap" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.NhanVien" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.QL_NguoiDungNhomNguoiDung" Width="1.5" PointX="10" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.QL_NhomNguoiDung" Width="1.5" PointX="7.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.QL_PhanQuyen" Width="1.5" PointX="10" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.SanPham" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QL_DCAN2Model.ThuongHieu" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <AssociationConnector Association="QL_DCAN2Model.FK_ChiTietHoaDon_HoaDon1" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_ChiTietHoaDon_SanPham" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_QL_PhanQuyen_DM_ManHinh" ManuallyRouted="false" />
-        <AssociationConnector Association="QL_DCAN2Model.FK_HinhAnh_SanPham" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_HoaDon_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_HoaDon_NhanVien" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_KhoHang_NhaCungCap" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_KhoHang_SanPham" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_KhuyenMai_SanPham" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_SanPham_LoaiSP" ManuallyRouted="false" />
-        <AssociationConnector Association="QL_DCAN2Model.FK_QL_NguoiDung_NhanVien" ManuallyRouted="false" />
-        <AssociationConnector Association="QL_DCAN2Model.FK_QL_NguoiDungNhomNguoiDung_QL_NguoiDung" ManuallyRouted="false" />
+        <AssociationConnector Association="QL_DCAN2Model.FK_QL_NguoiDungNhomNguoiDung_NhanVien" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_QL_NguoiDungNhomNguoiDung_QL_NhomNguoiDung" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_QL_PhanQuyen_QL_NhomNguoiDung" ManuallyRouted="false" />
         <AssociationConnector Association="QL_DCAN2Model.FK_SanPham_ThuongHieu" ManuallyRouted="false" />

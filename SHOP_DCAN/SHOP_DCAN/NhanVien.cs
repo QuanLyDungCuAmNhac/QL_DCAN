@@ -18,17 +18,20 @@ namespace SHOP_DCAN
         public NhanVien()
         {
             this.HoaDons = new HashSet<HoaDon>();
-            this.QL_NguoiDung = new HashSet<QL_NguoiDung>();
+            this.QL_NguoiDungNhomNguoiDung = new HashSet<QL_NguoiDungNhomNguoiDung>();
         }
     
         public int MaNV { get; set; }
         public string TenNV { get; set; }
-        public string ChucVu { get; set; }
         public string SDT { get; set; }
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public Nullable<bool> HoatDong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QL_NguoiDung> QL_NguoiDung { get; set; }
+        public virtual ICollection<QL_NguoiDungNhomNguoiDung> QL_NguoiDungNhomNguoiDung { get; set; }
     }
 }

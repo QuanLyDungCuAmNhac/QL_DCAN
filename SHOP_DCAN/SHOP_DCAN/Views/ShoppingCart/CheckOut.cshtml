@@ -85,130 +85,58 @@
     <!-- checkout-area start -->
     <section class="checkout-area pb-70">
         <div class="container">
-           
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="checkbox-form">
-                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chi tiết thanh toán</font></font></h3>
-                         
-                    @using (Html.BeginForm("CheckOut", "ShoppingCart", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
 
-                        @Html.Action("Partial_CheckOut", "ShoppingCart")
-                        <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
-                    }
-          </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="your-order mb-30 ">
-                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đơn hàng của bạn</font></font></h3>
-                          
-                            @Html.Action("Partial_Item_ThanhToan", "ShoppingCart")
-                            <div class="payment-method">
-                                <div class="accordion" id="accordionExample">
-                                    <div class="card">
-                                        <div class="card-header" id="headingOne">
-                                            <h5 class="mb-0">
-                                                <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">
-                                                            Chuyển khoản trực tiếp
-                                                        </font>
-                                                    </font>
-                                                </button>
-                                            </h5>
-                                        </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="checkbox-form">
+                        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family:'Segoe UI'">Chi tiết thanh toán</font></font></h3>
 
-                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">
-                                                        Thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng Mã đơn hàng của bạn làm tham chiếu thanh toán. Đơn hàng của bạn sẽ không được giao cho đến khi tiền được chuyển vào tài khoản của chúng tôi.
-                                                    </font>
-                                                </font>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingTwo">
-                                            <h5 class="mb-0">
-                                                <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">
-                                                            Thanh toán séc
-                                                        </font>
-                                                    </font>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">
-                                                        Vui lòng gửi séc đến Tên cửa hàng, Đường phố của cửa hàng, Thị trấn của cửa hàng, Tiểu bang/Quận của cửa hàng, Mã bưu chính của cửa hàng.
-                                                    </font>
-                                                </font>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingThree">
-                                            <h5 class="mb-0">
-                                                <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    <font style="vertical-align: inherit;">
-                                                        <font style="vertical-align: inherit;">
-                                                            PayPal
-                                                        </font>
-                                                    </font>
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">
-                                                        Thanh toán qua PayPal; bạn có thể thanh toán bằng thẻ tín dụng nếu bạn không có tài khoản PayPal.
-                                                    </font>
-                                                </font>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="order-button-payment mt-20">
-                                    <button type="submit" class="btn theme-btn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đặt hàng</font></font></button>
-                                </div>
-                            </div>
-                        </div>
+                        @using (Html.BeginForm("MomoPayment", "ShoppingCart", FormMethod.Post, new { id = "checkoutForm" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.Action("Partial_CheckOut", "ShoppingCart")
+                            <button type="button" class="btn btn-primary" id="orderButton" style="display:none;" onclick="submitForm('Checkout')">Đặt hàng</button> <!-- Nút Thanh toán Momo -->
+                             <button type="button" class="btn btn-primary" id="momoButton" style="display:none;" onclick="submitForm('MomoPayment')">Thanh toán Momo</button>
+                        }
                     </div>
                 </div>
-           
+                <div class="col-lg-6">
+                    <div class="your-order mb-30 ">
+                        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family: 'Segoe UI'">Đơn hàng của bạn</font></font></h3>
+
+                        @Html.Action("Partial_Item_ThanhToan", "ShoppingCart")
+                       
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
     <!-- checkout-area end -->
-
+    @*<button id="payWithMoMo" class="btn btn-success">Thanh Toán Qua MoMo</button>*@
 
 </main>
 <script src="https://esgoo.net/scripts/jquery.js"></script>
 <script>
     $(document).ready(function () {
         // Lấy tỉnh thành
-        $.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm', function(data_tinh) {
+        $.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm', function (data_tinh) {
             if (data_tinh.error == 0) {
-                $.each(data_tinh.data, function(key_tinh, val_tinh) {
+                $.each(data_tinh.data, function (key_tinh, val_tinh) {
                     $("#tinh").append('<option value="' + val_tinh.id + '">' + val_tinh.full_name + '</option>');
                 });
-                $("#tinh").change(function(e) {
+                $("#tinh").change(function (e) {
                     var idtinh = $(this).val();
                     var tenTinh = $("#tinh option:selected").text(); // Lấy tên tỉnh được chọn
                     $("#hidden_tinh").val(tenTinh); // Đặt giá trị của trường ẩn để gửi tên tỉnh về server
 
                     // Lấy quận huyện
-                    $.getJSON('https://esgoo.net/api-tinhthanh/2/' + idtinh + '.htm', function(data_quan) {
+                    $.getJSON('https://esgoo.net/api-tinhthanh/2/' + idtinh + '.htm', function (data_quan) {
                         if (data_quan.error == 0) {
                             $("#quan").html('<option value="0">Quận Huyện</option>');
                             $("#phuong").html('<option value="0">Phường Xã</option>');
-                            $.each(data_quan.data, function(key_quan, val_quan) {
+                            $.each(data_quan.data, function (key_quan, val_quan) {
                                 $("#quan").append('<option value="' + val_quan.id + '">' + val_quan.full_name + '</option>');
                             });
                         }
@@ -218,15 +146,15 @@
         });
 
         // Lấy phường xã khi chọn quận huyện
-        $("#quan").change(function(e) {
+        $("#quan").change(function (e) {
             var idquan = $(this).val();
             var tenQuan = $("#quan option:selected").text(); // Lấy tên quận huyện được chọn
             $("#hidden_quan").val(tenQuan); // Đặt giá trị của trường ẩn để gửi tên quận huyện về server
 
-            $.getJSON('https://esgoo.net/api-tinhthanh/3/' + idquan + '.htm', function(data_phuong) {
+            $.getJSON('https://esgoo.net/api-tinhthanh/3/' + idquan + '.htm', function (data_phuong) {
                 if (data_phuong.error == 0) {
                     $("#phuong").html('<option value="0">Phường Xã</option>');
-                    $.each(data_phuong.data, function(key_phuong, val_phuong) {
+                    $.each(data_phuong.data, function (key_phuong, val_phuong) {
                         $("#phuong").append('<option value="' + val_phuong.id + '">' + val_phuong.full_name + '</option>');
                     });
                 }
@@ -234,8 +162,37 @@
         });
 
         // Lấy phường xã khi chọn phường xã
-        $("#phuong").change(function(e) {
+        $("#phuong").change(function (e) {
             var tenPhuong = $("#phuong option:selected").text(); // Lấy tên phường xã được chọn
             $("#hidden_phuong").val(tenPhuong); // Đặt giá trị của trường ẩn để gửi tên phường xã về server
         });
     });</script>
+
+
+<script>
+    function submitForm(action) {
+        var form = document.getElementById('checkoutForm');
+        form.action = '/' + 'ShoppingCart/' + action ;
+        form.submit();
+    }
+
+    document.getElementById('paymentMethod').addEventListener('change', function () {
+        var selectedValue = this.value;
+        var orderButton = document.getElementById('orderButton');
+        var momoButton = document.getElementById('momoButton');
+
+        if (selectedValue == "COD") { // COD
+            orderButton.style.display = 'inline-block';
+            momoButton.style.display = 'none';
+        } else if (selectedValue == "Chuyển khoản") { // Chuyển khoản
+            orderButton.style.display = 'none';
+            momoButton.style.display = 'inline-block';
+        } else {
+            orderButton.style.display = 'none';
+            momoButton.style.display = 'none';
+        }
+    });
+
+    // Trigger change event to set initial button visibility
+    document.getElementById('paymentMethod').dispatchEvent(new Event('change'));
+</script>

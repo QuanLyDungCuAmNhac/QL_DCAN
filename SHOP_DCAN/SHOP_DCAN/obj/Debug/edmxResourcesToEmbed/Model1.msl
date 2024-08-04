@@ -19,15 +19,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HinhAnhs">
-      <EntityTypeMapping TypeName="QL_DCAN2Model.HinhAnh">
-        <MappingFragment StoreEntitySet="HinhAnh">
-          <ScalarProperty Name="MaHinh" ColumnName="MaHinh" />
-          <ScalarProperty Name="TenHinh" ColumnName="TenHinh" />
-          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="HoaDons">
       <EntityTypeMapping TypeName="QL_DCAN2Model.HoaDon">
         <MappingFragment StoreEntitySet="HoaDon">
@@ -101,25 +92,18 @@
         <MappingFragment StoreEntitySet="NhanVien">
           <ScalarProperty Name="MaNV" ColumnName="MaNV" />
           <ScalarProperty Name="TenNV" ColumnName="TenNV" />
-          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="QL_NguoiDung">
-      <EntityTypeMapping TypeName="QL_DCAN2Model.QL_NguoiDung">
-        <MappingFragment StoreEntitySet="QL_NguoiDung">
-          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
-          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
-          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="QL_NguoiDungNhomNguoiDung">
       <EntityTypeMapping TypeName="QL_DCAN2Model.QL_NguoiDungNhomNguoiDung">
         <MappingFragment StoreEntitySet="QL_NguoiDungNhomNguoiDung">
-          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
           <ScalarProperty Name="MaNhomNguoiDung" ColumnName="MaNhomNguoiDung" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
         </MappingFragment>

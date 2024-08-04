@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="breadcrumb-text text-center">
-                        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng ký</font></font></h1>
+                        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Đăng ký</font></font></h1>
                         <ul class="breadcrumb-menu">
                             <li><a href="index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang chủ</font></font></a></li>
                             <li><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng ký</font></font></span></li>
@@ -30,26 +30,26 @@
                         @using (Html.BeginForm("Register", "Account", FormMethod.Post))
                         {
                             @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.ValidationSummary(true, "", new { @style = "color: red;" })
                             <label for="name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tên Khách Hàng </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">**</font></font></span></label>
 
                             @Html.TextBoxFor(model => model.TenKH, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.TenKH)
+                            @Html.ValidationMessageFor(model => model.TenKH, "", new { @style = "color: red;" })
                             <label for="name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Username </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">**</font></font></span></label>
                             @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Username)
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @style = "color: red;" })
                             <label for="name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Số điện thoại </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">**</font></font></span></label>
                             @Html.TextBoxFor(model => model.SDT, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.SDT)
+                            @Html.ValidationMessageFor(model => model.SDT, "", new { @style = "color: red;" })
                             <label for="name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Địa chỉ email </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">**</font></font></span></label>
                             @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Email)
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @style = "color: red;" })
                             <label for="pass"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mật khẩu </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">**</font></font></span></label>
                             @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Password)
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @style = "color: red;" })
                             <label for="pass"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhập Lại Mật khẩu </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">**</font></font></span></label>
                             @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @style = "color: red;" })
                             <div class="login-action mb-20 fix">
                                 <span class="log-rem f-left">
                                     <input id="remember" type="checkbox">
