@@ -55,8 +55,7 @@ namespace SHOP_DCAN.Controllers
                 Email = customerInfo.Email.Trim(),
 
             };
-            //System.Diagnostics.Debug.WriteLine($"Email: {checkoutViewModel.Email}");
-            //return View(checkoutViewModel);
+           
             return PartialView(checkoutViewModel);
         }
 

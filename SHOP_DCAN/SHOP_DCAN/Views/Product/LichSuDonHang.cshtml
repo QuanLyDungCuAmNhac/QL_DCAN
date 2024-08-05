@@ -4,16 +4,28 @@
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
 
-
 <style>
-    .container {
-        max-width: 1200px;
+    body {
+        font-family: 'Segoe UI';
     }
 
-    h2 {
-        font-size: 24px;
+    .container {
+        max-width: 1400px;
+        margin-top: 40px;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1 {
+        font-size: 28px;
         font-weight: bold;
         color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-bottom: 20px;
     }
 
     .table {
@@ -25,11 +37,12 @@
         .table th, .table td {
             text-align: center;
             padding: 12px;
+            border: 1px solid #ddd;
         }
 
         .table th {
-            background-color: #f8f9fa;
-            color: #495057;
+            background-color: firebrick;
+            color: #ffffff;
         }
 
         .table tr:nth-child(even) {
@@ -40,7 +53,15 @@
         font-size: 0.875rem;
         padding: 0.25rem 0.5rem;
         border-radius: 0.2rem;
+        background-color: cornflowerblue;
+        color: #ffffff;
+        border: none;
+        transition: background-color 0.3s;
     }
+
+        .btn-sm:hover {
+            background-color: #0056b3;
+        }
 
     .alert-info {
         margin-top: 20px;
@@ -50,42 +71,143 @@
         border-radius: 4px;
         border: 1px solid #bce8f1;
     }
+
+    .tab-container {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .tab {
+        flex: 1;
+        max-width: 400px;
+        background-color: #f1f1f1;
+        margin-right: 20px;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .tab button {
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            .tab button.active {
+                background-color: firebrick;
+                color: #ffffff;
+            }
+
+    .tabcontent {
+        flex: 3;
+        width: 100%;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hidden {
+        display: none;
+    }
 </style>
 
-<div class="container mt-4">
-    <h1 class="mb-4" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Lịch sử đơn hàng của bạn</h1>
-    @if (Model.Any())
-    {
-<div class="table-responsive">
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Mã Đơn Hàng</th>
-                <th>Ngày Đặt</th>
-                <th>Tổng Tiền</th>
-                <th>Tình Trạng</th>
-                <th>Chi Tiết</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var order in Model)
-            {
-        <tr>
-            <td>@order.MaHD</td>
-            <td>@order.NgayDat</td>
-            <td>@order.TongTien VND</td>
-            <td>@order.TinhTrang</td>
-            <td>
-                <a href="@Url.Action("ChiTietDonHang", "Product", new { id = order.MaHD })" class="btn btn-info btn-sm">Xem Chi Tiết</a>
-            </td>
-        </tr>}
-        </tbody>
-    </table>
-</div> }
-            else
-            {
-<div class="alert alert-info" role="alert">
-    Bạn chưa có đơn hàng nào.
-</div>}
-</div>
+<main>
+    <div class="tab-container">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'OrderHistory')" id="defaultOpen">LỊCH SỬ ĐẶT HÀNG</button>
+            <button class="tablinks" onclick="openTab(event, 'EditCustomerInfo')">THÔNG TIN KHÁCH HÀNG</button>
+        </div>
 
+        <div id="OrderHistory" class="tabcontent hidden">
+            <div class="container">
+                <h1>Lịch sử đơn hàng của bạn</h1>
+                @if (Model.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Mã Đơn Hàng</th>
+                                    <th>Ngày Đặt</th>
+                                    <th>Tổng Tiền</th>
+                                    <th>Tình Trạng</th>
+                                    <th>Chi Tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model)
+                                {
+                                    <tr>
+                                        <td>@order.MaHD</td>
+                                        <td>@order.NgayDat</td>
+                                        <td>@order.TongTien VND</td>
+                                        <td>@order.TinhTrang</td>
+                                        <td>
+                                            <a href="@Url.Action("ChiTietDonHang", "Product", new { id = order.MaHD })" class="btn btn-info btn-sm">Xem Chi Tiết</a>
+                                        </td>
+                                    </tr>
+                                }
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-info" role="alert">
+                        Bạn chưa có đơn hàng nào.
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div id="EditCustomerInfo" class="tabcontent hidden">
+            <div class="container">
+                <h1>Chỉnh sửa thông tin khách hàng</h1>
+                @Html.Action("Edit", "KhachHang")
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.add("hidden");
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).classList.remove("hidden");
+        evt.currentTarget.className += " active";
+    }
+
+    // Tự động mở tab mặc định
+    document.getElementById("defaultOpen").click();
+</script>

@@ -362,6 +362,7 @@
     <Compile Include="Common.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="DM_ManHinh.cs">
@@ -402,6 +403,7 @@
     </Compile>
     <Compile Include="Models\CheckoutView.cs" />
     <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\EditKhachHang.cs" />
     <Compile Include="Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\GoogleUserInfo.cs" />
     <Compile Include="Models\LoginView.cs" />
@@ -492,6 +494,7 @@
     <Content Include="Views\Product\Partial_RecommendedProducts.cshtml" />
     <Content Include="Views\Product\_NoRecommendations.cshtml" />
     <Content Include="Views\Product\_NoOrder.cshtml" />
+    <Content Include="Views\KhachHang\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,18 @@
+﻿@model SHOP_DCAN.Models.EditKhachHang
+@using (Html.BeginForm("Edit", "KhachHang", FormMethod.Post))
+{
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.MaKH)
+
+        <div class="form-group">
+        @Html.LabelFor(model => model.TenKH)
+        @Html.TextBoxFor(model => model.TenKH, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+        @Html.LabelFor(model => model.SDT)
+        @Html.TextBoxFor(model => model.SDT, new { @class = "form-control" })
+        </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+            }

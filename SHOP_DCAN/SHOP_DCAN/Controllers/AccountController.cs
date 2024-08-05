@@ -24,37 +24,6 @@ namespace SHOP_DCAN.Controllers
             return View();
         }
 
-        // POST: Account/Register
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Register(RegisterView model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (db.KhachHangs.Any(kh => kh.Email == model.Email))
-        //        {
-        //            ModelState.AddModelError("", "Email đã tồn tại.");
-        //            return View(model);
-        //        }
-
-        //        KhachHang khachHang = new KhachHang()
-        //        {
-
-        //            TenKH = model.TenKH,
-        //            SDT = model.SDT,
-        //            Email = model.Email,
-        //            Username = model.Username,
-        //            Password = model.Password // Hash mật khẩu trước khi lưu
-        //        };
-
-        //       db.KhachHangs.Add(khachHang);
-        //       db.SaveChanges();
-        //    //Crypto.HashPassword(
-        //       return RedirectToAction("Login");
-        //    }
-        //    return View(model);
-        //}
-        // POST: Account/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterView model)
@@ -227,5 +196,7 @@ namespace SHOP_DCAN.Controllers
             string urls = "https://accounts.google.com/o/oauth2/v2/auth?scope=email&include_granted_scopes=true&redirect_uri=" + redirection_url + "&response_type=code&client_id=" + clientid + "";
             Response.Redirect(urls);
         }
+      
     }
+ 
 }
