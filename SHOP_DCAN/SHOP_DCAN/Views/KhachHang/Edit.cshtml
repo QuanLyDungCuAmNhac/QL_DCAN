@@ -5,12 +5,12 @@
         @Html.HiddenFor(model => model.MaKH)
 
         <div class="form-group">
-        @Html.LabelFor(model => model.TenKH)
+        @Html.LabelFor(model => model.TenKH,"Tên Khách Hàng")
         @Html.TextBoxFor(model => model.TenKH, new { @class = "form-control" })
         </div>
 
         <div class="form-group">
-        @Html.LabelFor(model => model.SDT)
+        @Html.LabelFor(model => model.SDT, "Số điện thoại")
         @Html.TextBoxFor(model => model.SDT, new { @class = "form-control" })
         </div>
 

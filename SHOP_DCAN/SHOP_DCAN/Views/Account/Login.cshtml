@@ -43,7 +43,7 @@
                             <div class="login-action mb-20 fix">
                                 <span class="log-rem f-left">
                                     <input id="remember" type="checkbox">
-                                    <label for="remember"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hãy nhớ tôi!</font></font></label>
+                                    @*<label for="remember"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hãy nhớ tôi!</font></font></label>*@
                                 </span>
                                 <span class="forgot-login f-right">
                                     <a href="@Url.Action("ForgotPassword", "Account")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Quên mật khẩu?</font></font></a>
@@ -52,7 +52,8 @@
                             <button type="submit" class="btn theme-btn-2 w-100"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng nhập ngay bây giờ</font></font></button>
                             <div class="or-divide"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hoặc</font></font></span></div>
                             <a href="@Url.Action("Register", "Account")" class="btn theme-btn w-100"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng ký ngay</font></font></a>
-                            <a href="@Url.Action("LoginGoogle", "Account")" class="btn theme-btn w-100"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Google</font></font></a>
+                            <div style="height:30px"><span></span></div>
+                            <a href="@Url.Action("LoginGoogle", "Account")" class="btn theme-btn-2 w-100"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng nhập Google</font></font></a>
 
                         }
                     </div>

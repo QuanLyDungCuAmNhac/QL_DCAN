@@ -406,6 +406,7 @@
     <Compile Include="Models\EditKhachHang.cs" />
     <Compile Include="Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\GoogleUserInfo.cs" />
+    <Compile Include="Models\KMeans.cs" />
     <Compile Include="Models\LoginView.cs" />
     <Compile Include="Models\Momo.cs" />
     <Compile Include="Models\RegisterView.cs" />

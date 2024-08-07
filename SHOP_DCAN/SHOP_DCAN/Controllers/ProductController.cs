@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
-
+using SHOP_DCAN.Models;
 namespace SHOP_DCAN.Controllers
 {
     public class ProductController : Controller
@@ -120,50 +120,90 @@ namespace SHOP_DCAN.Controllers
 
             return userLikedProducts;
         }
-        private List<SanPham> GetItemBasedRecommendations(List<SanPham> likedProducts, int topN = 10)
+        //private List<SanPham> GetItemBasedRecommendations(List<SanPham> likedProducts, int topN = 10)
+        //{
+        //    var allProducts = db.SanPhams.ToList();
+        //    var similarityScores = new Dictionary<SanPham, double>();
+
+        //    foreach (var likedProduct in likedProducts)
+        //    {
+        //        foreach (var product in allProducts)
+        //        {
+        //            if (!likedProducts.Contains(product))
+        //            {
+        //                double similarity = ComputeCosineSimilarity(likedProduct, product);
+        //                if (similarityScores.ContainsKey(product))
+        //                {
+        //                    similarityScores[product] += similarity;
+        //                }
+        //                else
+        //                {
+        //                    similarityScores[product] = similarity;
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    var recommendedProducts = similarityScores.OrderByDescending(x => x.Value)
+        //                                               .Take(topN)
+        //                                               .Select(x => x.Key)
+        //                                               .ToList();
+
+        //    return recommendedProducts;
+        //}
+        //public ActionResult ItemBasedRecommendations()
+        //{
+        //    var khachHang = Session["KH"] as KhachHang;
+        //    if (khachHang == null)
+        //    {
+        //        return PartialView("_NoRecommendations"); // Trả về view hiển thị không có gợi ý
+        //    }
+
+        //    int userId = khachHang.MaKH;
+        //    var likedProducts = GetUserLikedProducts(userId);
+        //    var recommendedProducts = GetItemBasedRecommendations(likedProducts);
+
+        //    return PartialView("ItemBasedRecommendations", recommendedProducts); // Trả về partial view với sản phẩm gợi ý
+        //}
+        private List<SanPham> GetItemBasedRecommendations(List<SanPham> likedProducts, int k = 5, int topN = 10)
         {
             var allProducts = db.SanPhams.ToList();
-            var similarityScores = new Dictionary<SanPham, double>();
 
+            var kmeans = new KMeans(k, allProducts);
+
+            var likedClusters = new HashSet<Cluster>();
             foreach (var likedProduct in likedProducts)
             {
-                foreach (var product in allProducts)
+                foreach (var cluster in kmeans.Clusters)
                 {
-                    if (!likedProducts.Contains(product))
+                    if (cluster.Products.Contains(likedProduct))
                     {
-                        double similarity = ComputeCosineSimilarity(likedProduct, product);
-                        if (similarityScores.ContainsKey(product))
-                        {
-                            similarityScores[product] += similarity;
-                        }
-                        else
-                        {
-                            similarityScores[product] = similarity;
-                        }
+                        likedClusters.Add(cluster);
+                        break;
                     }
                 }
             }
-
-            var recommendedProducts = similarityScores.OrderByDescending(x => x.Value)
-                                                       .Take(topN)
-                                                       .Select(x => x.Key)
-                                                       .ToList();
-
-            return recommendedProducts;
+            var recommendedProducts = new List<SanPham>();
+            foreach (var cluster in likedClusters)
+            {
+                recommendedProducts.AddRange(cluster.Products.Where(p => !likedProducts.Contains(p)));
+            }
+            return recommendedProducts.Distinct().Take(topN).ToList();
         }
+
         public ActionResult ItemBasedRecommendations()
         {
             var khachHang = Session["KH"] as KhachHang;
             if (khachHang == null)
             {
-                return PartialView("_NoRecommendations"); // Trả về view hiển thị không có gợi ý
+                return PartialView("_NoRecommendations"); 
             }
 
             int userId = khachHang.MaKH;
             var likedProducts = GetUserLikedProducts(userId);
             var recommendedProducts = GetItemBasedRecommendations(likedProducts);
 
-            return PartialView("ItemBasedRecommendations", recommendedProducts); // Trả về partial view với sản phẩm gợi ý
+            return PartialView("ItemBasedRecommendations", recommendedProducts);
         }
         public ActionResult LichSuDonHang()
         {

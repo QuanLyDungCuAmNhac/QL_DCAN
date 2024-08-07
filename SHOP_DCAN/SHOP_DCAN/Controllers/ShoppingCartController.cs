@@ -275,8 +275,24 @@ namespace SHOP_DCAN.Controllers
             }
             return View(req);
         }
-        
-       
+
+
+        //[HttpPost]
+        //public ActionResult ProceedToCheckout()
+        //{
+        //    // Kiểm tra xem người dùng đã đăng nhập hay chưa
+        //    if (Session["KH"] == null)
+        //    {
+        //        ViewBag.Message = "Hãy đăng nhập để đặt hàng.";
+        //        // Nếu chưa đăng nhập, chuyển hướng đến trang login
+        //        return RedirectToAction("Login", "Account");
+        //    }
+        //    else
+        //    {
+        //        // Nếu đã đăng nhập, chuyển hướng đến trang checkout
+        //        return RedirectToAction("CheckOut");
+        //    }
+        //}
         [HttpPost]
         public ActionResult ProceedToCheckout()
         {
@@ -289,7 +305,18 @@ namespace SHOP_DCAN.Controllers
             }
             else
             {
-                // Nếu đã đăng nhập, chuyển hướng đến trang checkout
+                // Lấy thông tin khách hàng từ session
+                var khachHang = Session["KH"] as KhachHang;
+
+                // Kiểm tra xem thông tin họ tên và số điện thoại có null không
+                if (string.IsNullOrEmpty(khachHang.TenKH) || string.IsNullOrEmpty(khachHang.SDT))
+                {
+                    ViewBag.Message = "Vui lòng cập nhật thông tin cá nhân trước khi đặt hàng.";
+                    // Chuyển hướng đến trang cập nhật thông tin
+                    return RedirectToAction("LichSuDonHang", "Product");
+                }
+
+                // Nếu đã đăng nhập và có đủ thông tin, chuyển hướng đến trang checkout
                 return RedirectToAction("CheckOut");
             }
         }
